@@ -1,0 +1,78 @@
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PDVS\bin\Release\PDVS.exe.config
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PDVS\bin\Release\PDVS.exe
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PDVS\bin\Release\PDVS.pdb
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PDVS\bin\Release\PGWLib.dll
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PDVS\bin\Release\PGWLib.pdb
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PDVS\obj\Release\PDVS.csprojAssemblyReference.cache
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PDVS\obj\Release\TypeDisplayMessageWindow.g.cs
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PDVS\obj\Release\SelectUserDataMessageWindow.g.cs
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PDVS\obj\Release\AddParamWindow.g.cs
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PDVS\obj\Release\ConfirmationWindow.g.cs
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PDVS\obj\Release\MainWindow.g.cs
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PDVS\obj\Release\App.g.cs
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PDVS\obj\Release\PDVS_MarkupCompile.cache
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PDVS\obj\Release\PDVS_MarkupCompile.lref
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PDVS\obj\Release\TypeDisplayMessageWindow.baml
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PDVS\obj\Release\SelectUserDataMessageWindow.baml
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PDVS\obj\Release\AddParamWindow.baml
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PDVS\obj\Release\ConfirmationWindow.baml
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PDVS\obj\Release\MainWindow.baml
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PDVS\obj\Release\PDVS.g.resources
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PDVS\obj\Release\PDVS.Properties.Resources.resources
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PDVS\obj\Release\PDVS.csproj.GenerateResource.cache
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PDVS\obj\Release\PDVS.csproj.CoreCompileInputs.cache
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PDVS\obj\Release\PDVS.csproj.CopyComplete
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PDVS\obj\Release\PDVS.exe
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PDVS\obj\Release\PDVS.pdb
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\bin\Release\PDVS.exe.config
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\bin\Release\PDVS.exe
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\bin\Release\PDVS.pdb
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\bin\Release\PGWLib.dll
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\bin\Release\PGWLib.pdb
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\obj\Release\PDVS.csprojAssemblyReference.cache
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\obj\Release\TypeDisplayMessageWindow.g.cs
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\obj\Release\SelectUserDataMessageWindow.g.cs
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\obj\Release\AddParamWindow.g.cs
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\obj\Release\ConfirmationWindow.g.cs
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\obj\Release\MainWindow.g.cs
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\obj\Release\App.g.cs
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\obj\Release\PDVS_MarkupCompile.cache
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\obj\Release\PDVS_MarkupCompile.lref
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\obj\Release\TypeDisplayMessageWindow.baml
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\obj\Release\SelectUserDataMessageWindow.baml
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\obj\Release\AddParamWindow.baml
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\obj\Release\ConfirmationWindow.baml
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\obj\Release\MainWindow.baml
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\obj\Release\PDVS.g.resources
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\obj\Release\PDVS.Properties.Resources.resources
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\obj\Release\PDVS.csproj.GenerateResource.cache
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\obj\Release\PDVS.csproj.CoreCompileInputs.cache
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\obj\Release\PDVS.csproj.CopyComplete
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\obj\Release\PDVS.exe
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\obj\Release\PDVS.pdb
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\bin\Release\PDVS.exe.config
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\bin\Release\PDVS.exe
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\bin\Release\PDVS.pdb
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\bin\Release\PGWLib.dll
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\bin\Release\PGWLib.pdb
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\obj\Release\PDVS.csproj.AssemblyReference.cache
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\obj\Release\TypeDisplayMessageWindow.g.cs
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\obj\Release\SelectUserDataMessageWindow.g.cs
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\obj\Release\AddParamWindow.g.cs
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\obj\Release\ConfirmationWindow.g.cs
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\obj\Release\MainWindow.g.cs
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\obj\Release\App.g.cs
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\obj\Release\PDVS_MarkupCompile.cache
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\obj\Release\PDVS_MarkupCompile.lref
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\obj\Release\TypeDisplayMessageWindow.baml
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\obj\Release\SelectUserDataMessageWindow.baml
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\obj\Release\AddParamWindow.baml
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\obj\Release\ConfirmationWindow.baml
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\obj\Release\MainWindow.baml
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\obj\Release\PDVS.g.resources
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\obj\Release\PDVS.Properties.Resources.resources
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\obj\Release\PDVS.csproj.GenerateResource.cache
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\obj\Release\PDVS.csproj.CoreCompileInputs.cache
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\obj\Release\PDVS.csproj.Up2Date
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\obj\Release\PDVS.exe
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\obj\Release\PDVS.pdb
