@@ -28,38 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.LblMessage = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDisplayMessage));
+            LblMessage = new System.Windows.Forms.Label();
+            SuspendLayout();
             // 
             // LblMessage
             // 
-            this.LblMessage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LblMessage.Font = new System.Drawing.Font("Courier New", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblMessage.Location = new System.Drawing.Point(0, 0);
-            this.LblMessage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.LblMessage.Name = "LblMessage";
-            this.LblMessage.Size = new System.Drawing.Size(395, 144);
-            this.LblMessage.TabIndex = 0;
-            this.LblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            LblMessage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            LblMessage.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            LblMessage.Location = new System.Drawing.Point(0, 8);
+            LblMessage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            LblMessage.Name = "LblMessage";
+            LblMessage.Size = new System.Drawing.Size(461, 154);
+            LblMessage.TabIndex = 0;
+            LblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormDisplayMessage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(395, 144);
-            this.Controls.Add(this.LblMessage);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "FormDisplayMessage";
-            this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormDisplayMessage";
-            this.TopMost = true;
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormDisplayMessage_KeyUp);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(461, 166);
+            Controls.Add(LblMessage);
+            DisplayHeader = false;
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            Margin = new System.Windows.Forms.Padding(2);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "FormDisplayMessage";
+            Padding = new System.Windows.Forms.Padding(23, 39, 23, 23);
+            Resizable = false;
+            ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
+            ShowIcon = false;
+            Style = MetroFramework.MetroColorStyle.Purple;
+            Text = "FormDisplayMessage";
+            TopMost = true;
+            KeyUp += FormDisplayMessage_KeyUp;
+            ResumeLayout(false);
         }
 
         #endregion

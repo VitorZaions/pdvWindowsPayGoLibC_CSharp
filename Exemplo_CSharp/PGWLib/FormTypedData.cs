@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MetroFramework.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,7 @@ using static PGWLib.Enums;
 
 namespace PGWLib
 {
-    public partial class FormTypedData : Form
+    public partial class FormTypedData : MetroForm
     {
         private bool _userAborted = false;
         private PW_GetData _expectedData;
@@ -70,8 +71,8 @@ namespace PGWLib
                 txtValue.RightToLeft = RightToLeft.Yes;
 
             // Define o tamanho máximo do dado a ser capturado
-            if (expectedData.bTamanhoMaximo > 0)
-                txtValue.MaxLength = expectedData.bTamanhoMaximo;
+            //if (expectedData.bTamanhoMaximo > 0)
+            //    txtValue.MaxLength = expectedData.bTamanhoMaximo;
 
             // Se não existir mascara de captura, cria uma padrão baseado no tamanho máximo
             if (expectedData.szMascaraDeCaptura == "")
@@ -201,7 +202,7 @@ namespace PGWLib
             DateTime data;
 
             // Validação de tamanho mínimo
-            if (_expectedData.bTamanhoMinimo > 0 && txtValue.TextLength < _expectedData.bTamanhoMinimo)
+            if (_expectedData.bTamanhoMinimo > 0 && txtValue.Text.Length < _expectedData.bTamanhoMinimo)
             {
                 MessageBox.Show(string.Format("Você deve inserir ao menos {0} caracteres", _expectedData.bTamanhoMinimo));
                 return;

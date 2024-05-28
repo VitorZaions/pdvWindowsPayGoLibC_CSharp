@@ -28,59 +28,68 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblMessage = new System.Windows.Forms.Label();
-            this.pbQRcode = new System.Windows.Forms.PictureBox();
-            this.tbQRcode = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pbQRcode)).BeginInit();
-            this.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDisplayQRcode));
+            lblMessage = new System.Windows.Forms.Label();
+            pbQRcode = new System.Windows.Forms.PictureBox();
+            tbQRcode = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)pbQRcode).BeginInit();
+            SuspendLayout();
             // 
             // lblMessage
             // 
-            this.lblMessage.Font = new System.Drawing.Font("Courier New", 24F, System.Drawing.FontStyle.Bold);
-            this.lblMessage.Location = new System.Drawing.Point(47, 9);
-            this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(395, 144);
-            this.lblMessage.TabIndex = 0;
-            this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblMessage.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblMessage.Location = new System.Drawing.Point(55, 10);
+            lblMessage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblMessage.Name = "lblMessage";
+            lblMessage.Size = new System.Drawing.Size(461, 166);
+            lblMessage.TabIndex = 0;
+            lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pbQRcode
             // 
-            this.pbQRcode.Location = new System.Drawing.Point(47, 158);
-            this.pbQRcode.Name = "pbQRcode";
-            this.pbQRcode.Size = new System.Drawing.Size(395, 395);
-            this.pbQRcode.TabIndex = 1;
-            this.pbQRcode.TabStop = false;
+            pbQRcode.Location = new System.Drawing.Point(55, 182);
+            pbQRcode.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pbQRcode.Name = "pbQRcode";
+            pbQRcode.Size = new System.Drawing.Size(461, 456);
+            pbQRcode.TabIndex = 1;
+            pbQRcode.TabStop = false;
             // 
             // tbQRcode
             // 
-            this.tbQRcode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbQRcode.Font = new System.Drawing.Font("Courier New", 24F, System.Drawing.FontStyle.Bold);
-            this.tbQRcode.Location = new System.Drawing.Point(47, 158);
-            this.tbQRcode.Multiline = true;
-            this.tbQRcode.Name = "tbQRcode";
-            this.tbQRcode.ReadOnly = true;
-            this.tbQRcode.Size = new System.Drawing.Size(395, 395);
-            this.tbQRcode.TabIndex = 2;
-            this.tbQRcode.TabStop = false;
-            this.tbQRcode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbQRcode_KeyUp);
+            tbQRcode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            tbQRcode.Font = new System.Drawing.Font("Courier New", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            tbQRcode.Location = new System.Drawing.Point(55, 182);
+            tbQRcode.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tbQRcode.Multiline = true;
+            tbQRcode.Name = "tbQRcode";
+            tbQRcode.ReadOnly = true;
+            tbQRcode.Size = new System.Drawing.Size(461, 456);
+            tbQRcode.TabIndex = 2;
+            tbQRcode.TabStop = false;
+            tbQRcode.KeyUp += tbQRcode_KeyUp;
             // 
             // FormDisplayQRcode
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(503, 612);
-            this.Controls.Add(this.lblMessage);
-            this.Controls.Add(this.pbQRcode);
-            this.Controls.Add(this.tbQRcode);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormDisplayQRcode";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormDisplayQRcode";
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormDisplayQRcode_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.pbQRcode)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(587, 706);
+            Controls.Add(lblMessage);
+            Controls.Add(pbQRcode);
+            Controls.Add(tbQRcode);
+            DisplayHeader = false;
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            MaximizeBox = false;
+            Name = "FormDisplayQRcode";
+            Padding = new System.Windows.Forms.Padding(20, 30, 20, 20);
+            Resizable = false;
+            ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
+            Style = MetroFramework.MetroColorStyle.Purple;
+            Text = "FormDisplayQRcode";
+            KeyUp += FormDisplayQRcode_KeyUp;
+            ((System.ComponentModel.ISupportInitialize)pbQRcode).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

@@ -13,7 +13,7 @@
             <ColumnDefinition Width="114*"/>
             <ColumnDefinition Width="222*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btnExecute" Content="Executar" Margin="166,45,-14,0" Click="btnExecute_Click" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="70" Grid.Column="2"/>
+        <Button x:Name="btnExecute" Content="Executar" Margin="166,45,-14,0" Click="btnExecute_Click" Height="20" VerticalAlignment="Top" Grid.Column="2"/>
         <ComboBox x:Name="cmbOper" Margin="70,12,-14,0" VerticalAlignment="Top" IsReadOnly="True" Grid.Column="1" Grid.ColumnSpan="2" Height="22" SelectedIndex="0"/>
         <Label x:Name="LblOper" Content="PWINFO__OPERATION:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="125" Grid.ColumnSpan="2" Height="26"/>
         <ListBox x:Name="lstParameters" Margin="10,72,-14,-12" MouseDoubleClick="lstParameters_MouseDoubleClick" Grid.ColumnSpan="3"/>

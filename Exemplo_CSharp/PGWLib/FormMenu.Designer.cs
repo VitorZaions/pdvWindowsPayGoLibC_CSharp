@@ -28,60 +28,97 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.LblHeader = new System.Windows.Forms.Label();
-            this.LstMenu = new System.Windows.Forms.ListBox();
-            this.SuspendLayout();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenu));
+            LblHeader = new System.Windows.Forms.Label();
+            LstMenu = new System.Windows.Forms.ListBox();
+            btnOK = new Guna.UI2.WinForms.Guna2Button();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // LblHeader
             // 
-            this.LblHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LblHeader.Font = new System.Drawing.Font("Courier New", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblHeader.Location = new System.Drawing.Point(10, 2);
-            this.LblHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.LblHeader.Name = "LblHeader";
-            this.LblHeader.Size = new System.Drawing.Size(396, 81);
-            this.LblHeader.TabIndex = 0;
-            this.LblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            LblHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            LblHeader.Location = new System.Drawing.Point(25, 69);
+            LblHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            LblHeader.Name = "LblHeader";
+            LblHeader.Size = new System.Drawing.Size(506, 50);
+            LblHeader.TabIndex = 0;
+            LblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LstMenu
             // 
-            this.LstMenu.Font = new System.Drawing.Font("Courier New", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LstMenu.FormattingEnabled = true;
-            this.LstMenu.ItemHeight = 36;
-            this.LstMenu.Location = new System.Drawing.Point(7, 84);
-            this.LstMenu.Margin = new System.Windows.Forms.Padding(2);
-            this.LstMenu.Name = "LstMenu";
-            this.LstMenu.Size = new System.Drawing.Size(402, 220);
-            this.LstMenu.TabIndex = 1;
-            this.LstMenu.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LstMenu_MouseClick);
-            this.LstMenu.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyPressed);
+            LstMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            LstMenu.FormattingEnabled = true;
+            LstMenu.ItemHeight = 30;
+            LstMenu.Location = new System.Drawing.Point(25, 130);
+            LstMenu.Margin = new System.Windows.Forms.Padding(2);
+            LstMenu.Name = "LstMenu";
+            LstMenu.Size = new System.Drawing.Size(506, 184);
+            LstMenu.TabIndex = 1;
+            LstMenu.MouseClick += LstMenu_MouseClick;
+            LstMenu.KeyDown += KeyPressed;
+            // 
+            // btnOK
+            // 
+            btnOK.BorderColor = System.Drawing.Color.Silver;
+            btnOK.BorderThickness = 1;
+            btnOK.CustomizableEdges = customizableEdges1;
+            btnOK.FillColor = System.Drawing.Color.FromArgb(238, 238, 238);
+            btnOK.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnOK.ForeColor = System.Drawing.SystemColors.ControlText;
+            btnOK.Image = Properties.Resources.ok_24px;
+            btnOK.ImageOffset = new System.Drawing.Point(-3, 0);
+            btnOK.IndicateFocus = true;
+            btnOK.Location = new System.Drawing.Point(356, 328);
+            btnOK.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnOK.Name = "btnOK";
+            btnOK.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnOK.Size = new System.Drawing.Size(175, 40);
+            btnOK.TabIndex = 5;
+            btnOK.Text = "Ok";
+            btnOK.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.maquina_de_cartao;
+            pictureBox1.Location = new System.Drawing.Point(25, 22);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(32, 33);
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
             // 
             // FormMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(412, 303);
-            this.ControlBox = false;
-            this.Controls.Add(this.LstMenu);
-            this.Controls.Add(this.LblHeader);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "FormMenu";
-            this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SELECIONE UMA OPÇÃO";
-            this.TopMost = true;
-            this.Load += new System.EventHandler(this.FormMenu_Load);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyPressed);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(556, 388);
+            Controls.Add(pictureBox1);
+            Controls.Add(btnOK);
+            Controls.Add(LstMenu);
+            Controls.Add(LblHeader);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            Margin = new System.Windows.Forms.Padding(2);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "FormMenu";
+            Padding = new System.Windows.Forms.Padding(23, 69, 23, 23);
+            Style = MetroFramework.MetroColorStyle.Purple;
+            Text = "     Selecione uma Opção";
+            Load += FormMenu_Load;
+            KeyUp += KeyPressed;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
 
         private System.Windows.Forms.Label LblHeader;
         private System.Windows.Forms.ListBox LstMenu;
+        private Guna.UI2.WinForms.Guna2Button btnOK;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

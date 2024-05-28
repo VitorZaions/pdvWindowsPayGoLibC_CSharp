@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="CustomControls\EditDecimalGuna2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CustomControls\SyncComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CustomControls\SyncMaskedTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CustomControls\SyncTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="FormDisplayMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormDisplayQRcode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormTypedData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

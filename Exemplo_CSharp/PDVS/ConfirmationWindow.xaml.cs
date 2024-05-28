@@ -43,5 +43,10 @@ namespace PDVS
         {
             this.Close();
         }
+
+        private void cmbtransactionStatuses_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

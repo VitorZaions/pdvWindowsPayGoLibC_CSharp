@@ -28,106 +28,130 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnOK = new System.Windows.Forms.Button();
-            this.LblHeader = new System.Windows.Forms.Label();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.txtValue = new System.Windows.Forms.MaskedTextBox();
-            this.lblCurrency = new System.Windows.Forms.Label();
-            this.SuspendLayout();
-            // 
-            // btnOK
-            // 
-            this.btnOK.Font = new System.Drawing.Font("Courier New", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOK.Location = new System.Drawing.Point(304, 138);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(2);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(144, 44);
-            this.btnOK.TabIndex = 1;
-            this.btnOK.Text = "OK";
-            this.btnOK.UseVisualStyleBackColor = true;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTypedData));
+            LblHeader = new System.Windows.Forms.Label();
+            lblCurrency = new System.Windows.Forms.Label();
+            btnOK = new Guna.UI2.WinForms.Guna2Button();
+            btnCancel = new Guna.UI2.WinForms.Guna2Button();
+            txtValue = new CustomControls.SyncControls.SyncMaskedTextBox();
+            SuspendLayout();
             // 
             // LblHeader
             // 
-            this.LblHeader.AllowDrop = true;
-            this.LblHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LblHeader.Font = new System.Drawing.Font("Courier New", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblHeader.Location = new System.Drawing.Point(30, 3);
-            this.LblHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.LblHeader.Name = "LblHeader";
-            this.LblHeader.Size = new System.Drawing.Size(396, 73);
-            this.LblHeader.TabIndex = 2;
-            this.LblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Font = new System.Drawing.Font("Courier New", 24F, System.Drawing.FontStyle.Bold);
-            this.btnCancel.Location = new System.Drawing.Point(63, 138);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(144, 44);
-            this.btnCancel.TabIndex = 2;
-            this.btnCancel.Text = "Cancelar";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // txtValue
-            // 
-            this.txtValue.AccessibleDescription = "";
-            this.txtValue.AccessibleName = "";
-            this.txtValue.Font = new System.Drawing.Font("Courier New", 24F, System.Drawing.FontStyle.Bold);
-            this.txtValue.Location = new System.Drawing.Point(63, 78);
-            this.txtValue.Margin = new System.Windows.Forms.Padding(2);
-            this.txtValue.Name = "txtValue";
-            this.txtValue.Size = new System.Drawing.Size(385, 44);
-            this.txtValue.TabIndex = 0;
-            this.txtValue.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.txtValue.ValidatingType = typeof(System.DateTime);
+            LblHeader.AllowDrop = true;
+            LblHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            LblHeader.Location = new System.Drawing.Point(3, 15);
+            LblHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            LblHeader.Name = "LblHeader";
+            LblHeader.Size = new System.Drawing.Size(575, 55);
+            LblHeader.TabIndex = 2;
+            LblHeader.Text = "Insira ldsadas";
+            LblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCurrency
             // 
-            this.lblCurrency.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblCurrency.AutoSize = true;
-            this.lblCurrency.Font = new System.Drawing.Font("Courier New", 24F, System.Drawing.FontStyle.Bold);
-            this.lblCurrency.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lblCurrency.Location = new System.Drawing.Point(7, 82);
-            this.lblCurrency.Name = "lblCurrency";
-            this.lblCurrency.Size = new System.Drawing.Size(0, 36);
-            this.lblCurrency.TabIndex = 3;
+            lblCurrency.Anchor = System.Windows.Forms.AnchorStyles.None;
+            lblCurrency.AutoSize = true;
+            lblCurrency.Font = new System.Drawing.Font("Courier New", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblCurrency.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            lblCurrency.Location = new System.Drawing.Point(31, 75);
+            lblCurrency.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblCurrency.Name = "lblCurrency";
+            lblCurrency.Size = new System.Drawing.Size(0, 36);
+            lblCurrency.TabIndex = 3;
+            // 
+            // btnOK
+            // 
+            btnOK.BorderColor = System.Drawing.Color.Silver;
+            btnOK.BorderThickness = 1;
+            btnOK.CustomizableEdges = customizableEdges1;
+            btnOK.FillColor = System.Drawing.Color.FromArgb(238, 238, 238);
+            btnOK.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnOK.ForeColor = System.Drawing.SystemColors.ControlText;
+            btnOK.Image = Properties.Resources.ok_24px;
+            btnOK.ImageOffset = new System.Drawing.Point(-3, 0);
+            btnOK.IndicateFocus = true;
+            btnOK.Location = new System.Drawing.Point(385, 150);
+            btnOK.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnOK.Name = "btnOK";
+            btnOK.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnOK.Size = new System.Drawing.Size(175, 40);
+            btnOK.TabIndex = 4;
+            btnOK.Text = "Ok";
+            btnOK.Visible = false;
+            // 
+            // btnCancel
+            // 
+            btnCancel.BorderColor = System.Drawing.Color.Silver;
+            btnCancel.BorderThickness = 1;
+            btnCancel.CustomizableEdges = customizableEdges3;
+            btnCancel.FillColor = System.Drawing.Color.FromArgb(238, 238, 238);
+            btnCancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnCancel.ForeColor = System.Drawing.SystemColors.ControlText;
+            btnCancel.Image = Properties.Resources.button_cancelar2;
+            btnCancel.ImageOffset = new System.Drawing.Point(-3, 0);
+            btnCancel.IndicateFocus = true;
+            btnCancel.Location = new System.Drawing.Point(202, 150);
+            btnCancel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnCancel.Name = "btnCancel";
+            btnCancel.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnCancel.Size = new System.Drawing.Size(175, 40);
+            btnCancel.TabIndex = 5;
+            btnCancel.Text = "Cancelar";
+            btnCancel.Visible = false;
+            // 
+            // txtValue
+            // 
+            txtValue.BorderColor = System.Drawing.Color.DarkGray;
+            txtValue.BorderColorSelected = System.Drawing.Color.FromArgb(94, 148, 255);
+            txtValue.Cursor = System.Windows.Forms.Cursors.IBeam;
+            txtValue.Location = new System.Drawing.Point(19, 86);
+            txtValue.Mask = "00,000,000/0000-00";
+            txtValue.Name = "txtValue";
+            txtValue.PasswordChar = '\0';
+            txtValue.Size = new System.Drawing.Size(541, 48);
+            txtValue.TabIndex = 6;
+            txtValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            txtValue.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // FormTypedData
             // 
-            this.AcceptButton = this.btnOK;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(459, 193);
-            this.Controls.Add(this.lblCurrency);
-            this.Controls.Add(this.txtValue);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.LblHeader);
-            this.Controls.Add(this.btnOK);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "FormTypedData";
-            this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Insira a informação solicitada";
-            this.TopMost = true;
-            this.Load += new System.EventHandler(this.FormTypedData_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.FromArgb(255, 255, 255);
+            ClientSize = new System.Drawing.Size(581, 214);
+            Controls.Add(txtValue);
+            Controls.Add(btnCancel);
+            Controls.Add(btnOK);
+            Controls.Add(lblCurrency);
+            Controls.Add(LblHeader);
+            DisplayHeader = false;
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            Margin = new System.Windows.Forms.Padding(2);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "FormTypedData";
+            Padding = new System.Windows.Forms.Padding(23, 39, 23, 23);
+            Resizable = false;
+            ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
+            ShowIcon = false;
+            Style = MetroFramework.MetroColorStyle.Purple;
+            Text = "Insira a informação solicitada";
+            TopMost = true;
+            Load += FormTypedData_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Label LblHeader;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.MaskedTextBox txtValue;
         private System.Windows.Forms.Label lblCurrency;
+        private Guna.UI2.WinForms.Guna2Button btnOK;
+        private Guna.UI2.WinForms.Guna2Button btnCancel;
+        private CustomControls.SyncControls.SyncMaskedTextBox txtValue;
     }
 }

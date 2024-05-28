@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "FkSKM6w6Zi4=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\PGWLib.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Vitor\\.nuget\\packages\\guna.ui2.winforms\\2.0.4.6\\guna.ui2.winforms.2.0.4.6.nupkg.sha512",
+    "C:\\Users\\Vitor\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\Vitor\\.nuget\\packages\\system.codedom\\6.0.0\\system.codedom.6.0.0.nupkg.sha512",
+    "C:\\Users\\Vitor\\.nuget\\packages\\system.data.datasetextensions\\4.5.0\\system.data.datasetextensions.4.5.0.nupkg.sha512",
+    "C:\\Users\\Vitor\\.nuget\\packages\\system.management\\6.0.0\\system.management.6.0.0.nupkg.sha512",
+    "C:\\Users\\Vitor\\.nuget\\packages\\xein.metroframework\\1.5.1\\xein.metroframework.1.5.1.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MetroFramework.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,7 +12,7 @@ using static PGWLib.CustomObjects;
 
 namespace PGWLib
 {
-    public partial class FormMenu : Form
+    public partial class FormMenu : MetroForm
     {
         bool userAborted = false;
         PW_GetData _expectedData;
