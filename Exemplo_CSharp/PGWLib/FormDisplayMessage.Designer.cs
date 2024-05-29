@@ -35,7 +35,7 @@
             // LblMessage
             // 
             LblMessage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            LblMessage.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            LblMessage.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             LblMessage.Location = new System.Drawing.Point(0, 8);
             LblMessage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             LblMessage.Name = "LblMessage";

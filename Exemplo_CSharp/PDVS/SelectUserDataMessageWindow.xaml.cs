@@ -48,7 +48,7 @@ namespace PDVS
         {
             if (!validateFields())
             {
-                MessageBox.Show("Preencha os campos corretamente.");
+                Sync.Util.SyncMessagerPayGo.CreateMessage(0, "TEF PayGo", "Preencha os campos corretamente.", "blue", false, false);
             }
             else
             {

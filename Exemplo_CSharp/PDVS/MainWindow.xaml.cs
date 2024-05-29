@@ -91,7 +91,7 @@ namespace PDVS
 
             if (!ValidateFields())
             {
-                MessageBox.Show(this, "Preencha os campos corretamente.");
+                Sync.Util.SyncMessagerPayGo.CreateMessage(0, "TEF PayGo", "Preencha os campos corretamente.", "blue", false, false);
                 return;
             }
 
@@ -119,12 +119,11 @@ namespace PDVS
                 int ret = eft.GetInputFromPP(ref userTypedValue, message, minLength, maxLength);
                 if (ret != 0)
                 {
-                    MessageBox.Show(this, string.Format("Erro ao executar a captura de dado no PINPad: {0}{1}{2}", ret, Environment.NewLine, ((E_PWRET)ret).ToString()));
+                    Sync.Util.SyncMessagerPayGo.CreateMessage(0, "TEF PayGo", string.Format("Erro ao executar a captura de dado no PINPad: {0}{1}{2}", ret, Environment.NewLine, ((E_PWRET)ret).ToString()), "blue", false, false);
                     return;
                 }
 
-                MessageBox.Show(this, string.Format("Dado capturado no PINPad: {0}{1}", Environment.NewLine, userTypedValue));
-
+                Sync.Util.SyncMessagerPayGo.CreateMessage(0, "TEF PayGo", string.Format("Dado capturado no PINPad: {0}{1}", Environment.NewLine, userTypedValue), "blue", false, false);
             }
         }
 
@@ -142,12 +141,11 @@ namespace PDVS
                 int ret = eft.DisplayOnPP(message);
                 if (ret != 0)
                 {
-                    MessageBox.Show(this, string.Format("Erro ao exibir mensagem no PINPad: {0}{1}{2}",
-                        ret, Environment.NewLine, ((E_PWRET)ret).ToString()));
+                    Sync.Util.SyncMessagerPayGo.CreateMessage(0, "TEF PayGo", string.Format("Erro ao exibir mensagem no PINPad: {0}{1}{2}", ret, Environment.NewLine, ((E_PWRET)ret).ToString()), "blue", false, false);
                     return;
                 }
 
-                MessageBox.Show(this, string.Format("Mensagem exibida !!!"));
+                Sync.Util.SyncMessagerPayGo.CreateMessage(0, "TEF PayGo", string.Format("Mensagem exibida !!!"), "blue", false, false);
             }
         }
 
@@ -169,7 +167,7 @@ namespace PDVS
                 return;
             }
 
-            MessageBox.Show(this, string.Format("Criptograma da senha digitada: {0}", cripto));
+            Sync.Util.SyncMessagerPayGo.CreateMessage(0, "TEF PayGo", string.Format("Criptograma da senha digitada: {0}", cripto), "blue", false, false);
         }
 
         // Aguarda qualquer evento que ocorra no PIN-pad
@@ -183,7 +181,7 @@ namespace PDVS
             eventoSaida = eft.WaitEventOnPP(eventoEntrada);
             if (eventoSaida != E_PWPPEVT.PWPPEVT_NONE)
             {
-                MessageBox.Show(this, string.Format("Evento acionado={0}", eventoSaida.ToString()));
+                Sync.Util.SyncMessagerPayGo.CreateMessage(0, "TEF PayGo", string.Format("Evento acionado={0}", eventoSaida.ToString()), "blue", false, false);
                 return;
             }
         }
@@ -248,7 +246,7 @@ namespace PDVS
                 {
                     if (item.parameterName == parameterObject.parameterName && itemPosition == -1)
                     {
-                        MessageBox.Show(this, "Você não pode inserir duas vezes o mesmo parâmetro");
+                        Sync.Util.SyncMessagerPayGo.CreateMessage(0, "TEF PayGo", "Você não pode inserir duas vezes o mesmo parâmetro", "blue", false, false);
                         return;
                     }
                 }
@@ -299,7 +297,7 @@ namespace PDVS
 
             // Exibe a mensagem de resultado, substituindo a quebra de linha utilizada
             // pela biblioteca pela quebra de linha utilizada na janela
-            MessageBox.Show(this, resultMessage.Replace("\r", "\n"));
+            Sync.Util.SyncMessagerPayGo.CreateMessage(0, "TEF PayGo", resultMessage.Replace("\r", "\n"), "blue", false, false);
 
             // Transação com erro
             if (ret != 0)
@@ -323,18 +321,19 @@ namespace PDVS
                     autExtRef = paramList.Find(item => item.parameterCode == (ushort)E_PWINFO.PWINFO_PNDAUTEXTREF);
 
                     // Exibe uma mensagem identificando a transação que está pendente
-                    MessageBox.Show(this, string.Format("Existe uma transação pendente:\n" +
+                    Sync.Util.SyncMessagerPayGo.CreateMessage(0, "TEF PayGo", 
+                        string.Format("Existe uma transação pendente:\n" +
                         "PNDAUTHSYST={0}\n" +
                         "PNDVIRTMERCH={1}\n" +
                         "PNDREQNUM={2}\n" +
                         "PNDAUTLOCREF={3}\n" +
                         "PNDAUTEXTREF={4}\n" +
-                        "Será necessário resolvê-la !!!", 
-                        authSyst==null ? "" : authSyst.parameterValue,
+                        "Será necessário resolvê-la !!!",
+                        authSyst == null ? "" : authSyst.parameterValue,
                         virtMerch == null ? "" : virtMerch.parameterValue,
                         reqNum == null ? "" : reqNum.parameterValue,
                         autLocRef == null ? "" : autLocRef.parameterValue,
-                        autExtRef == null ? "" : autExtRef.parameterValue));                    
+                        autExtRef == null ? "" : autExtRef.parameterValue), "blue", false, false);                  
 
                     // Pergunta ao usuário qual status de confirmação atribuir para a transação
                     ConfirmationWindow cw = new ConfirmationWindow();

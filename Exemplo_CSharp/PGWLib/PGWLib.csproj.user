@@ -2,16 +2,16 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="CustomControls\EditDecimalGuna2.cs">
+    <Compile Update="CustomControls\EditDecimalGuna2PayGo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="CustomControls\SyncComboBox.cs">
+    <Compile Update="CustomControls\SyncComboBoxPayGo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="CustomControls\SyncMaskedTextBox.cs">
+    <Compile Update="CustomControls\SyncMaskedTextBoxPayGo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="CustomControls\SyncTextBox.cs">
+    <Compile Update="CustomControls\SyncTextBoxPayGo.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="FormDisplayMessage.cs">
@@ -24,6 +24,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormTypedData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MessageSyncPayGo.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

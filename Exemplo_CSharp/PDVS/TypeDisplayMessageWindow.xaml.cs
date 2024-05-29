@@ -39,7 +39,7 @@ namespace PDVS
         {
             if (!ValidateFields())
             {
-                MessageBox.Show("A duas linhas devem possuir 16 caracteres cada");
+                Sync.Util.SyncMessagerPayGo.CreateMessage(0, "TEF PayGo", "A duas linhas devem possuir 16 caracteres cada", "blue", false, false);
             }
             else
             {

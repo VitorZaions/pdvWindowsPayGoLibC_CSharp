@@ -48,13 +48,13 @@ namespace PGWLib
             if (expectedData.wIdentificador == (ushort)E_PWINFO.PWINFO_AUTHMNGTUSER)
             {
                 // Exemplificando a captura de uma senha de lojista de até 4 dígitos
-                expectedData.szPrompt = "INSIRA A SENHA DO LOJISTA";
+                expectedData.szPrompt = "Insira a Senha do Lojista";
                 expectedData.bTamanhoMaximo = 4;
             }
             if (expectedData.wIdentificador == (ushort)E_PWINFO.PWINFO_AUTHTECHUSER)
             {
                 // Exemplificando a captura de uma senha de lojista de até 10 dígitos
-                expectedData.szPrompt = "INSIRA A SENHA TÉCNICA";
+                expectedData.szPrompt = "Insira a Senha Técnica";
                 expectedData.bTamanhoMaximo = 10;
             }
 
@@ -67,15 +67,22 @@ namespace PGWLib
 
             // Define se o preenchimento deve ser feito da direita pra esquerda (um valor
             // em dinheiro, por exemplo)
-            if (expectedData.bIniciaPelaEsquerda != 1)
-                txtValue.RightToLeft = RightToLeft.Yes;
+           // if (expectedData.bIniciaPelaEsquerda != 1)
+           //     txtValue.RightToLeft = RightToLeft.Yes;
 
             // Define o tamanho máximo do dado a ser capturado
             //if (expectedData.bTamanhoMaximo > 0)
             //    txtValue.MaxLength = expectedData.bTamanhoMaximo;
 
             // Se não existir mascara de captura, cria uma padrão baseado no tamanho máximo
-            if (expectedData.szMascaraDeCaptura == "")
+            if (expectedData.wIdentificador == (ushort)E_PWINFO.PWINFO_AUTHTECHUSER ||
+                expectedData.wIdentificador == (ushort)E_PWINFO.PWINFO_AUTHMNGTUSER ||
+                expectedData.wIdentificador == (ushort)E_PWINFO.PWINFO_DESTTCPIP ||
+                expectedData.wIdentificador == (ushort)E_PWINFO.PWINFO_POSID)
+            {
+                expectedData.szMascaraDeCaptura = "";
+            }
+            else if (expectedData.szMascaraDeCaptura == "")
             {
                 expectedData.szMascaraDeCaptura = new string('@', expectedData.bTamanhoMaximo);
             }
@@ -204,21 +211,21 @@ namespace PGWLib
             // Validação de tamanho mínimo
             if (_expectedData.bTamanhoMinimo > 0 && txtValue.Text.Length < _expectedData.bTamanhoMinimo)
             {
-                MessageBox.Show(string.Format("Você deve inserir ao menos {0} caracteres", _expectedData.bTamanhoMinimo));
+                Sync.Util.SyncMessagerPayGo.CreateMessage(0, "TEF PayGo", string.Format("Você deve inserir ao menos {0} caracteres", _expectedData.bTamanhoMinimo), "blue", false, false);
                 return;
             }
 
             // Validação de valor mínimo
             if (_expectedData.ulValorMinimo > 0 && int.Parse(txtValue.Text) < _expectedData.ulValorMinimo)
             {
-                MessageBox.Show(_expectedData.szMsgDadoMenor);
+                Sync.Util.SyncMessagerPayGo.CreateMessage(0, "TEF PayGo", _expectedData.szMsgDadoMenor, "blue", false, false);
                 return;
             }
 
             // Validação de valor máximo
             if (_expectedData.ulValorMaximo > 0 && int.Parse(txtValue.Text) > _expectedData.ulValorMaximo)
             {
-                MessageBox.Show(_expectedData.szMsgDadoMaior);
+                Sync.Util.SyncMessagerPayGo.CreateMessage(0, "TEF PayGo", _expectedData.szMsgDadoMaior, "blue", false, false);
                 return;
             }
 
@@ -232,7 +239,7 @@ namespace PGWLib
                     // Validação de valor não nulo
                     if (txtValue.Text.Length == 0)
                     {
-                        MessageBox.Show(_expectedData.szMsgValidacao);
+                        Sync.Util.SyncMessagerPayGo.CreateMessage(0, "TEF PayGo", _expectedData.szMsgValidacao, "blue", false, false);
                         return;
                     }
                     break;
@@ -242,7 +249,7 @@ namespace PGWLib
                     // Validação de módulo de 10
                     if (!mode10(txtValue.Text))
                     {
-                        MessageBox.Show(_expectedData.szMsgValidacao);
+                        Sync.Util.SyncMessagerPayGo.CreateMessage(0, "TEF PayGo", _expectedData.szMsgValidacao, "blue", false, false);
                         return;
                     }
                     break;
@@ -251,7 +258,7 @@ namespace PGWLib
                     // Validação de CPF
                     if (!isCPF(txtValue.Text))
                     {
-                        MessageBox.Show(_expectedData.szMsgValidacao);
+                        Sync.Util.SyncMessagerPayGo.CreateMessage(0, "TEF PayGo", _expectedData.szMsgValidacao, "blue", false, false);
                         return;
                     }
                     break;
@@ -261,7 +268,7 @@ namespace PGWLib
                     if (!DateTime.TryParseExact(txtValue.Text, "MMyy", CultureInfo.InvariantCulture,
                     DateTimeStyles.None, out data))
                     {
-                        MessageBox.Show(_expectedData.szMsgValidacao);
+                        Sync.Util.SyncMessagerPayGo.CreateMessage(0, "TEF PayGo", _expectedData.szMsgValidacao, "blue", false, false);
                         return;
                     }
 
@@ -272,7 +279,7 @@ namespace PGWLib
                     if (!DateTime.TryParseExact(txtValue.Text, "ddMMyy", CultureInfo.InvariantCulture,
                     DateTimeStyles.None, out data))
                     {
-                        MessageBox.Show(_expectedData.szMsgValidacao);
+                        Sync.Util.SyncMessagerPayGo.CreateMessage(0, "TEF PayGo", _expectedData.szMsgValidacao, "blue", false, false);
                         return;
                     }
                     break;
@@ -285,14 +292,14 @@ namespace PGWLib
                         {
                             _firstString = txtValue.Text;
                             txtValue.Text = "";
-                            MessageBox.Show(_expectedData.szMsgConfirmacao);
+                            Sync.Util.SyncMessagerPayGo.CreateMessage(0, "TEF PayGo", _expectedData.szMsgConfirmacao, "blue", false, false);
                             return;
                         }
                         else
                         {
                             if (_firstString != txtValue.Text)
                             {
-                                MessageBox.Show(_expectedData.szMsgValidacao);
+                                Sync.Util.SyncMessagerPayGo.CreateMessage(0, "TEF PayGo", _expectedData.szMsgValidacao, "blue", false, false);
                                 _twoTimesValid = false;
                                 _firstString = null;
                                 txtValue.Text = "";

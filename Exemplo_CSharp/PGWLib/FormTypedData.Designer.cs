@@ -37,14 +37,14 @@
             lblCurrency = new System.Windows.Forms.Label();
             btnOK = new Guna.UI2.WinForms.Guna2Button();
             btnCancel = new Guna.UI2.WinForms.Guna2Button();
-            txtValue = new CustomControls.SyncControls.SyncMaskedTextBox();
+            txtValue = new CustomControls.SyncControls.SyncMaskedTextBoxPayGo();
             SuspendLayout();
             // 
             // LblHeader
             // 
             LblHeader.AllowDrop = true;
             LblHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            LblHeader.Location = new System.Drawing.Point(3, 15);
+            LblHeader.Location = new System.Drawing.Point(3, 26);
             LblHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             LblHeader.Name = "LblHeader";
             LblHeader.Size = new System.Drawing.Size(575, 55);
@@ -82,7 +82,7 @@
             btnOK.Size = new System.Drawing.Size(175, 40);
             btnOK.TabIndex = 4;
             btnOK.Text = "Ok";
-            btnOK.Visible = false;
+            btnOK.Click += btnOK_Click;
             // 
             // btnCancel
             // 
@@ -102,18 +102,19 @@
             btnCancel.Size = new System.Drawing.Size(175, 40);
             btnCancel.TabIndex = 5;
             btnCancel.Text = "Cancelar";
-            btnCancel.Visible = false;
+            btnCancel.Click += btnCancel_Click;
             // 
             // txtValue
             // 
             txtValue.BorderColor = System.Drawing.Color.DarkGray;
             txtValue.BorderColorSelected = System.Drawing.Color.FromArgb(94, 148, 255);
             txtValue.Cursor = System.Windows.Forms.Cursors.IBeam;
-            txtValue.Location = new System.Drawing.Point(19, 86);
+            txtValue.Location = new System.Drawing.Point(19, 89);
             txtValue.Mask = "00,000,000/0000-00";
             txtValue.Name = "txtValue";
             txtValue.PasswordChar = '\0';
             txtValue.Size = new System.Drawing.Size(541, 48);
+            txtValue.Font = new System.Drawing.Font("Segoe UI", 15.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txtValue.TabIndex = 6;
             txtValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             txtValue.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
@@ -152,6 +153,6 @@
         private System.Windows.Forms.Label lblCurrency;
         private Guna.UI2.WinForms.Guna2Button btnOK;
         private Guna.UI2.WinForms.Guna2Button btnCancel;
-        private CustomControls.SyncControls.SyncMaskedTextBox txtValue;
+        private CustomControls.SyncControls.SyncMaskedTextBoxPayGo txtValue;
     }
 }
