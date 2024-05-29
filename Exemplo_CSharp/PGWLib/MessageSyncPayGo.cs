@@ -103,8 +103,16 @@ namespace PGWLib
 
         private void CheckColor()
         {
-            HeaderBG_Default.Visible = true;
-            PB_Icone.Image = Properties.Resources.information;
+            if (_Color == "yellow")
+            {
+                Style = MetroFramework.MetroColorStyle.Yellow;
+                PB_Icone.Image = Properties.Resources.warning;
+            }
+            else
+            {
+                HeaderBG_Default.Visible = true;
+                PB_Icone.Image = Properties.Resources.information;
+            }
         }
 
         private void SetupHeader()

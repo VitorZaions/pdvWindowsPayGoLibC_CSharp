@@ -1,8 +1,4 @@
 C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PGWLib\obj\Release\net6.0-windows\PGWLib.csproj.AssemblyReference.cache
-C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PGWLib\obj\Release\net6.0-windows\CustomControls.SyncControls.EditDecimalGuna2.resources
-C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PGWLib\obj\Release\net6.0-windows\CustomControls.SyncControls.SyncComboBox.resources
-C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PGWLib\obj\Release\net6.0-windows\CustomControls.SyncControls.SyncMaskedTextBox.resources
-C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PGWLib\obj\Release\net6.0-windows\CustomControls.SyncControls.SyncTextBox.resources
 C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PGWLib\obj\Release\net6.0-windows\PGWLib.FormDisplayMessage.resources
 C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PGWLib\obj\Release\net6.0-windows\PGWLib.FormDisplayQRcode.resources
 C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PGWLib\obj\Release\net6.0-windows\PGWLib.FormMenu.resources
@@ -41,3 +37,8 @@ C:\Users\emano\Repositorio\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSh
 C:\Users\emano\Repositorio\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PGWLib\obj\Release\net6.0-windows\CustomControls.SyncControls.SyncMaskedTextBoxPayGo.resources
 C:\Users\emano\Repositorio\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PGWLib\obj\Release\net6.0-windows\CustomControls.SyncControls.SyncTextBoxPayGo.resources
 C:\Users\emano\Repositorio\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PGWLib\obj\Release\net6.0-windows\PGWLib.MessageSyncPayGo.resources
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PGWLib\obj\Release\net6.0-windows\CustomControls.SyncControls.EditDecimalGuna2PayGo.resources
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PGWLib\obj\Release\net6.0-windows\CustomControls.SyncControls.SyncComboBoxPayGo.resources
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PGWLib\obj\Release\net6.0-windows\CustomControls.SyncControls.SyncMaskedTextBoxPayGo.resources
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PGWLib\obj\Release\net6.0-windows\CustomControls.SyncControls.SyncTextBoxPayGo.resources
+C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PGWLib\obj\Release\net6.0-windows\PGWLib.MessageSyncPayGo.resources

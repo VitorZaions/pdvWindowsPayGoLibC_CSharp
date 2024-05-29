@@ -211,7 +211,7 @@ namespace PGWLib
             // Validação de tamanho mínimo
             if (_expectedData.bTamanhoMinimo > 0 && txtValue.Text.Length < _expectedData.bTamanhoMinimo)
             {
-                Sync.Util.SyncMessagerPayGo.CreateMessage(0, "TEF PayGo", string.Format("Você deve inserir ao menos {0} caracteres", _expectedData.bTamanhoMinimo), "blue", false, false);
+                Sync.Util.SyncMessagerPayGo.CreateMessage(0, "TEF PayGo", string.Format("Você deve inserir ao menos {0} caracteres", _expectedData.bTamanhoMinimo), "yellow", false, false);
                 return;
             }
 
