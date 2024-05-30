@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\obj\Release\net8.0-windows7.0\
+C:\Users\emano\Repositorio\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\obj\Release\net8.0-windows7.0\
 PDVS
 none
 false
 TRACE;RELEASE;NET;NET8_0;NETCOREAPP
-C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\App.xaml
+C:\Users\emano\Repositorio\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\App.xaml
 52050515048
 
 81300038677
-2112094245146
+211797455490
 AddParamWindow.xaml;ConfirmationWindow.xaml;MainWindow.xaml;SelectUserDataMessageWindow.xaml;TypeDisplayMessageWindow.xaml;
 
 False
