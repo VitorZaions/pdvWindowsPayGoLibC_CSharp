@@ -40,7 +40,7 @@
             // 
             // LblHeader
             // 
-            LblHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            LblHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             LblHeader.Location = new System.Drawing.Point(25, 69);
             LblHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             LblHeader.Name = "LblHeader";
@@ -50,7 +50,7 @@
             // 
             // LstMenu
             // 
-            LstMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            LstMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
             LstMenu.FormattingEnabled = true;
             LstMenu.ItemHeight = 30;
             LstMenu.Location = new System.Drawing.Point(25, 130);
@@ -67,7 +67,7 @@
             btnOK.BorderThickness = 1;
             btnOK.CustomizableEdges = customizableEdges1;
             btnOK.FillColor = System.Drawing.Color.FromArgb(238, 238, 238);
-            btnOK.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnOK.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             btnOK.ForeColor = System.Drawing.SystemColors.ControlText;
             btnOK.Image = Properties.Resources.ok_24px;
             btnOK.ImageOffset = new System.Drawing.Point(-3, 0);

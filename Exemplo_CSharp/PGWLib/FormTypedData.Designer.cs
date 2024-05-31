@@ -43,7 +43,7 @@
             // LblHeader
             // 
             LblHeader.AllowDrop = true;
-            LblHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            LblHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             LblHeader.Location = new System.Drawing.Point(3, 26);
             LblHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             LblHeader.Name = "LblHeader";
@@ -56,7 +56,7 @@
             // 
             lblCurrency.Anchor = System.Windows.Forms.AnchorStyles.None;
             lblCurrency.AutoSize = true;
-            lblCurrency.Font = new System.Drawing.Font("Courier New", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblCurrency.Font = new System.Drawing.Font("Courier New", 24F, System.Drawing.FontStyle.Bold);
             lblCurrency.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             lblCurrency.Location = new System.Drawing.Point(31, 75);
             lblCurrency.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -70,7 +70,7 @@
             btnOK.BorderThickness = 1;
             btnOK.CustomizableEdges = customizableEdges1;
             btnOK.FillColor = System.Drawing.Color.FromArgb(238, 238, 238);
-            btnOK.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnOK.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             btnOK.ForeColor = System.Drawing.SystemColors.ControlText;
             btnOK.Image = Properties.Resources.ok_24px;
             btnOK.ImageOffset = new System.Drawing.Point(-3, 0);
@@ -90,7 +90,7 @@
             btnCancel.BorderThickness = 1;
             btnCancel.CustomizableEdges = customizableEdges3;
             btnCancel.FillColor = System.Drawing.Color.FromArgb(238, 238, 238);
-            btnCancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnCancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             btnCancel.ForeColor = System.Drawing.SystemColors.ControlText;
             btnCancel.Image = Properties.Resources.button_cancelar2;
             btnCancel.ImageOffset = new System.Drawing.Point(-3, 0);
@@ -114,7 +114,6 @@
             txtValue.Name = "txtValue";
             txtValue.PasswordChar = '\0';
             txtValue.Size = new System.Drawing.Size(541, 48);
-            txtValue.Font = new System.Drawing.Font("Segoe UI", 15.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txtValue.TabIndex = 6;
             txtValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             txtValue.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
