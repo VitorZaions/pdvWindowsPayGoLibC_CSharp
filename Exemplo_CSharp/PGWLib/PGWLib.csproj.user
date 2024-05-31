@@ -26,6 +26,9 @@
     <Compile Update="FormTypedData.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="LoadingPayGo.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="MessageSyncPayGo.cs">
       <SubType>Form</SubType>
     </Compile>

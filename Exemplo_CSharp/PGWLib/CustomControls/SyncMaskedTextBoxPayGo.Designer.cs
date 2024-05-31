@@ -76,7 +76,7 @@ namespace CustomControls.SyncControls
             // 
             TextBoxMask.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             TextBoxMask.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            TextBoxMask.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            TextBoxMask.Font = new System.Drawing.Font("Segoe UI", 15.75F);
             TextBoxMask.ForeColor = System.Drawing.SystemColors.ControlText;
             TextBoxMask.Location = new System.Drawing.Point(9, 3);
             TextBoxMask.Margin = new System.Windows.Forms.Padding(10);
@@ -93,7 +93,7 @@ namespace CustomControls.SyncControls
             Controls.Add(panel2);
             Controls.Add(panel1);
             Cursor = System.Windows.Forms.Cursors.IBeam;
-            Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            Font = new System.Drawing.Font("Segoe UI", 15.75F);
             Name = "SyncMaskedTextBoxPayGo";
             Size = new System.Drawing.Size(205, 35);
             Load += SyncMaskedTextBox_Load;

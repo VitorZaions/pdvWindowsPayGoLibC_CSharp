@@ -390,100 +390,123 @@ namespace PGWLib
         // Executa o loop da transação até que ela seja aprovada ou ocorra algum erro
         private int ExecuteTransaction()
         {
-            int ret;
-            FormDisplayQRcode fdqr = new FormDisplayQRcode();
-
-            // Loop que só será interrompido em caso da finalização da transação, seja ela por algum
-            // tipo de erro ou com o sucesso
-            for (; ; )
+            Sync.Util.LoadingCallPayGo LoadingScreen = new Sync.Util.LoadingCallPayGo("Aguardando TEF...");
+            bool IsLoadingScreen = false;
+            try
             {
-                // Cria a estrutura necessária para executar a função PW_iExecTransac, caso seja 
-                // necessário capturar algum dado, essa estrutura terá detalhes de como deverá ser feita
-                // essa captura
-                PW_GetData[] structParam = new PW_GetData[10];
+                LoadingScreen.ShowLoading();
+                IsLoadingScreen = true;
+                int ret;
+                FormDisplayQRcode fdqr = new FormDisplayQRcode();
 
-                // Parâmetro que, na entrada, indica quantos registros possui a estrutura PW_GetData e
-                // na saída indica quantos dados precisam ser capturados
-                short numDados = 10;
-
-                // Desmarca o desfazimento marcado por segurança, pois a transação irá para 
-                // controle pela biblioteca
-                PendencyDelete();
-
-                // Chama a função que executa um passo da transação
-                ret = (int)Interop.PW_iExecTransac(structParam, ref numDados);
-
-                // Marca um desfazimento por segurança, caso a automação seja fechada abruptamente
-                // durante qualquer passo abaixo, o desfazimento já estará armazenado em disco para
-                // ser executado por PendencyResolve antes da próxima transação
-                // Esse desfazimento será desmarcado em duas situações:
-                // 1-) O loop foi executado novamente e PW_iExecTransac será chamada
-                // 2-) Algum erro ocorreu durante o loop
-                // 3-) A transação foi finalizada com sucesso, nesse caso o desfazimento permanecerá
-                //     gravado até a execução da resolução de pendência da transação em 
-                //     "ConfirmUndoNormalTransaction"
-                PendencyWrite(E_PWCNF.PWCNF_REV_PWR_AUT);
-
-                // Registra na janela de debug o resultado da execução
-                Debug.Print(string.Format("PW_iExecTransac={0}", ret.ToString()));
-
-                // Faz o tratamento correto de acordo com o retorno recebido em PW_iExecTransac
-                switch (ret)
+                // Loop que só será interrompido em caso da finalização da transação, seja ela por algum
+                // tipo de erro ou com o sucesso
+                for (; ; )
                 {
-                    // Caso a biblioteca tenha solicitado a captura de mais dados, chama a função que
-                    // faz a captura de acordo com as informações contidas em structParam
-                    case (int)E_PWRET.PWRET_MOREDATA:
-                        int ret2 = ShowCorrespondingWindow(structParam, ref fdqr);
-                        if (ret2 != (int)E_PWRET.PWRET_OK)
-                        {
-                            if (ret2 == (int)E_PWRET.PWRET_CANCEL)
+                    // Cria a estrutura necessária para executar a função PW_iExecTransac, caso seja 
+                    // necessário capturar algum dado, essa estrutura terá detalhes de como deverá ser feita
+                    // essa captura
+                    PW_GetData[] structParam = new PW_GetData[10];
+
+                    // Parâmetro que, na entrada, indica quantos registros possui a estrutura PW_GetData e
+                    // na saída indica quantos dados precisam ser capturados
+                    short numDados = 10;
+
+                    // Desmarca o desfazimento marcado por segurança, pois a transação irá para 
+                    // controle pela biblioteca
+                    PendencyDelete();
+
+                    // Chama a função que executa um passo da transação
+                    ret = (int)Interop.PW_iExecTransac(structParam, ref numDados);
+
+                    // Marca um desfazimento por segurança, caso a automação seja fechada abruptamente
+                    // durante qualquer passo abaixo, o desfazimento já estará armazenado em disco para
+                    // ser executado por PendencyResolve antes da próxima transação
+                    // Esse desfazimento será desmarcado em duas situações:
+                    // 1-) O loop foi executado novamente e PW_iExecTransac será chamada
+                    // 2-) Algum erro ocorreu durante o loop
+                    // 3-) A transação foi finalizada com sucesso, nesse caso o desfazimento permanecerá
+                    //     gravado até a execução da resolução de pendência da transação em 
+                    //     "ConfirmUndoNormalTransaction"
+                    PendencyWrite(E_PWCNF.PWCNF_REV_PWR_AUT);
+
+                    // Registra na janela de debug o resultado da execução
+                    Debug.Print(string.Format("PW_iExecTransac={0}", ret.ToString()));
+
+                    // Faz o tratamento correto de acordo com o retorno recebido em PW_iExecTransac
+                    switch (ret)
+                    {
+                        // Caso a biblioteca tenha solicitado a captura de mais dados, chama a função que
+                        // faz a captura de acordo com as informações contidas em structParam
+                        case (int)E_PWRET.PWRET_MOREDATA:
+                            if (IsLoadingScreen)
+                                LoadingScreen.CloseLoading();
+                            int ret2 = ShowCorrespondingWindow(structParam, ref fdqr);
+                            LoadingScreen = new Sync.Util.LoadingCallPayGo("Aguardando TEF...");
+                            LoadingScreen.ShowLoading();
+                            IsLoadingScreen = true;
+                            if (ret2 != (int)E_PWRET.PWRET_OK)
                             {
-                                // Apaga o status de desfazimento anterior por desligamento abrupto da
-                                // automação
-                                PendencyDelete();
+                                if (ret2 == (int)E_PWRET.PWRET_CANCEL)
+                                {
+                                    // Apaga o status de desfazimento anterior por desligamento abrupto da
+                                    // automação
+                                    PendencyDelete();
 
-                                // Escreve o novo desfazimento a ser executado por transação abortada
-                                // pela automação durante uma captura de dados
-                                PendencyWrite(E_PWCNF.PWCNF_REV_ABORT);
+                                    // Escreve o novo desfazimento a ser executado por transação abortada
+                                    // pela automação durante uma captura de dados
+                                    PendencyWrite(E_PWCNF.PWCNF_REV_ABORT);
 
+                                }
+                                return ret2;
                             }
-                            return ret2;
-                        }
-                        break;
+                            break;
 
-                    // Caso a biblioteca tenha retornado que existe uma transação pendente.
-                    // Esse retorno só irá acontecer em caso de alguma falha de tratamento da resolução
-                    // de pendência da transação por parte da automação, ou alguma falha de sistema
-                    // do Pay&Go WEB, caso um ponto de captura fique com uma transação pendente ele não
-                    // irá poder realizar novas transações até que essa pendência seja resolvida
-                    case (int)E_PWRET.PWRET_FROMHOSTPENDTRN:
-                        // Desmarca o desfazimento marcado por segurança, pois a transação não foi 
-                        // finalizada com sucesso
-                        PendencyDelete();
+                        // Caso a biblioteca tenha retornado que existe uma transação pendente.
+                        // Esse retorno só irá acontecer em caso de alguma falha de tratamento da resolução
+                        // de pendência da transação por parte da automação, ou alguma falha de sistema
+                        // do Pay&Go WEB, caso um ponto de captura fique com uma transação pendente ele não
+                        // irá poder realizar novas transações até que essa pendência seja resolvida
+                        case (int)E_PWRET.PWRET_FROMHOSTPENDTRN:
+                            // Desmarca o desfazimento marcado por segurança, pois a transação não foi 
+                            // finalizada com sucesso
+                            PendencyDelete();
 
-                        return ret;
+                            return ret;
 
-                    // Esse retorno indica que nada deve ser feito e PW_iExecTransac deve ser chamada 
-                    // novamente para prosseguir o fluxo
-                    case (int)E_PWRET.PWRET_NOTHING:
-                        break;
+                        // Esse retorno indica que nada deve ser feito e PW_iExecTransac deve ser chamada 
+                        // novamente para prosseguir o fluxo
+                        case (int)E_PWRET.PWRET_NOTHING:
+                            break;
 
-                    // Esse retorno indica que a transação foi executada com sucesso
-                    case (int)E_PWRET.PWRET_OK:
-                        // Para de exibir o QRcode, caso exista um sendo exibido
-                        fdqr.Stop();
-                        return ret;
+                        // Esse retorno indica que a transação foi executada com sucesso
+                        case (int)E_PWRET.PWRET_OK:
+                            // Para de exibir o QRcode, caso exista um sendo exibido
+                            fdqr.Stop();
+                            return ret;
 
-                    // Qualquer outro código de retorno representa um erro
-                    default:
-                        // Para de exibir o QRcode, caso exista um sendo exibido
-                        fdqr.Stop();
-                        // Desmarca o desfazimento marcado por segurança, pois a transação não foi 
-                        // finalizada com sucesso
-                        PendencyDelete();
+                        // Qualquer outro código de retorno representa um erro
+                        default:
+                            // Para de exibir o QRcode, caso exista um sendo exibido
+                            fdqr.Stop();
+                            // Desmarca o desfazimento marcado por segurança, pois a transação não foi 
+                            // finalizada com sucesso
+                            PendencyDelete();
 
-                        return ret;
+                            return ret;
+                    }
                 }
+            }
+            catch
+            {
+                if (IsLoadingScreen)
+                    LoadingScreen.CloseLoading();
+                return (int)E_PWRET.PWRET_CANCEL;
+            }
+            finally
+            {
+                if (IsLoadingScreen)
+                    LoadingScreen.CloseLoading();
             }
         }
         
@@ -801,21 +824,35 @@ namespace PGWLib
         // Resolve uma pendência previamente gravada
         private int PendencyResolve()
         {
-            // Nessa função é necessário implementar na automação, de acordo com o tipo de persistência
-            // de dados, a checagem se existe alguma transação necessitando de resolução de pendência
-            // e, caso positivo, obter os identificadores dela que foram persistidos anteriormente:
-            // PWINFO_REQNUM
-            // PWINFO_AUTLOCREF
-            // PWINFO_AUTEXTREF
-            // PWINFO_VIRTMERCH
-            // PWINFO_AUTHSYST
-            // Após isso, chamar a função PW_iConfirmation para resolver e:
-            //      Caso ocorra algum erro nessa chamada, não desmarcar a resolução de pendência 
-            //      em disco e retornar erro, abortando a transação em curso.
-            //      Caso a chamada retorne PWRET_OK, desmarcar a resolução de pendência em disco e
-            //      prosseguir normalmente com a transação em curso.
-
-            return (int)E_PWRET.PWRET_OK;
+            Sync.Util.LoadingCallPayGo LoadingScreen = new Sync.Util.LoadingCallPayGo("Resolvendo Pendências...");
+            bool IsLoadingScreen = false;
+            try
+            {
+                LoadingScreen.ShowLoading();
+                IsLoadingScreen = true;
+                // Nessa função é necessário implementar na automação, de acordo com o tipo de persistência
+                // de dados, a checagem se existe alguma transação necessitando de resolução de pendência
+                // e, caso positivo, obter os identificadores dela que foram persistidos anteriormente:
+                // PWINFO_REQNUM
+                // PWINFO_AUTLOCREF
+                // PWINFO_AUTEXTREF
+                // PWINFO_VIRTMERCH
+                // PWINFO_AUTHSYST
+                // Após isso, chamar a função PW_iConfirmation para resolver e:
+                //      Caso ocorra algum erro nessa chamada, não desmarcar a resolução de pendência 
+                //      em disco e retornar erro, abortando a transação em curso.
+                //      Caso a chamada retorne PWRET_OK, desmarcar a resolução de pendência em disco e
+                //      prosseguir normalmente com a transação em curso.
+                IsLoadingScreen = false;
+                LoadingScreen.CloseLoading();
+                return (int)E_PWRET.PWRET_OK;
+            }
+            catch
+            {
+                if (IsLoadingScreen)
+                    LoadingScreen.CloseLoading();
+                return (int)E_PWRET.PWRET_CANCEL;
+            }
         }
 
         // Grava uma pendência para posterior resolução

@@ -49,7 +49,7 @@
             LblHeader.Name = "LblHeader";
             LblHeader.Size = new System.Drawing.Size(575, 55);
             LblHeader.TabIndex = 2;
-            LblHeader.Text = "Insira ldsadas";
+            LblHeader.Text = "Insira ld";
             LblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCurrency
