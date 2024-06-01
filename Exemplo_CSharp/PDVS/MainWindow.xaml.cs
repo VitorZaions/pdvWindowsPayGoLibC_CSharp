@@ -37,6 +37,23 @@ namespace PDVS
         public MainWindow()
         {
             InitializeComponent();
+            #if DEBUG
+                #if X86
+                    string pathPGWebLib = System.IO.Path.GetDirectoryName(Environment.GetEnvironmentVariable("PathPGWebLib")) + "\\DEBUG";
+                #else
+                    string pathPGWebLib = System.IO.Path.GetDirectoryName(Environment.GetEnvironmentVariable("PathPGWebLib")) + "\\DEBUG\\x64";
+                #endif
+            #else
+                #if X86
+                    string pathPGWebLib = System.IO.Path.GetDirectoryName(Environment.GetEnvironmentVariable("PathPGWebLib"));
+                #else
+                    string pathPGWebLib = System.IO.Path.GetDirectoryName(Environment.GetEnvironmentVariable("PathPGWebLib_x64"));
+                #endif                  
+            #endif
+
+            // Adicione o diretório da DLL ao PATH do processo atual
+            string currentPath = Environment.GetEnvironmentVariable("PATH");
+            Environment.SetEnvironmentVariable("PATH", currentPath + ";" + pathPGWebLib);
 
             // Inicializa a instancia de acesso a biblioteca
             eft = new PGWLib.PGWLib();

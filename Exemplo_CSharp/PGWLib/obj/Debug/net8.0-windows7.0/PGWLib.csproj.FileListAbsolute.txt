@@ -42,3 +42,4 @@ C:\Users\emano\Repositorio\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSh
 C:\Users\emano\Repositorio\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PGWLib\obj\Debug\net8.0-windows7.0\refint\PGWLib.dll
 C:\Users\emano\Repositorio\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PGWLib\obj\Debug\net8.0-windows7.0\PGWLib.pdb
 C:\Users\emano\Repositorio\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PGWLib\obj\Debug\net8.0-windows7.0\ref\PGWLib.dll
+C:\Users\emano\Repositorio\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PGWLib\obj\Debug\net8.0-windows7.0\LoadingScreen.LoadingPayGo.resources
