@@ -33,7 +33,7 @@ namespace PGWLib
         #region MÉTODOS PUBLICOS
 
         // Executa a uma operação utilizando uma lista de parâmetros pre definidos pela automação
-        public int StartTransaction(E_PWOPER operation, List<PW_Parameter> paramList)
+        public int StartTransaction(E_PWOPER operation, List<PW_Parameter> paramList, bool SomentePix = false)
         {
             int ret;
 
@@ -66,7 +66,7 @@ namespace PGWLib
             }
 
             // Inicia o processo de execução da transação
-            ret = ExecuteTransaction();
+            ret = ExecuteTransaction(SomentePix);
 
             return ret;
         }
@@ -388,7 +388,7 @@ namespace PGWLib
         #region MÉTODOS PRIVADOS
 
         // Executa o loop da transação até que ela seja aprovada ou ocorra algum erro
-        private int ExecuteTransaction(bool SomentePix = false)
+        private int ExecuteTransaction(bool SomentePix)
         {
             Sync.Util.LoadingCallPayGo LoadingScreen = new Sync.Util.LoadingCallPayGo("Aguardando TEF...");
             bool IsLoadingScreen = false;
