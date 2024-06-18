@@ -14,14 +14,27 @@ namespace PGWLib
 {
     public partial class FormMenu : MetroForm
     {
+        public class MenuItemRetorno
+        {
+            public string descricao;
+
+            public string valormenu;
+
+            public byte teclaatalho;
+        }
+
         bool userAborted = false;
         PW_GetData _expectedData;
         string _ret = string.Empty;
         bool _SomentePix;
+        List<MenuItemRetorno> Itens = new List<MenuItemRetorno>();
 
         public FormMenu(PW_GetData expectedData, bool SomentePix)
         {
             InitializeComponent();
+
+            LstMenu.DisplayMember = "descricao";
+            LstMenu.ValueMember = "valormenu";
 
             _expectedData = expectedData;
             _SomentePix = SomentePix;
@@ -59,11 +72,19 @@ namespace PGWLib
                 { 
                     if (_expectedData.bTeclasDeAtalho == 1 && b < 10)
                     {
-                        LstMenu.Items.Add(string.Format("{0}-{1}", b, _expectedData.vszTextoMenu[b].szTextoMenu));
+                        MenuItemRetorno Menu = new MenuItemRetorno();
+                        Menu.descricao = string.Format("{0}-{1}", b, _expectedData.vszTextoMenu[b].szTextoMenu);
+                        Menu.teclaatalho = b;
+                        Menu.valormenu = _expectedData.vszValorMenu[b].szValorMenu;
+                        Itens.Add(Menu);
                     }
                     else
                     {
-                        LstMenu.Items.Add(string.Format("{0}", _expectedData.vszTextoMenu[b].szTextoMenu));
+                        MenuItemRetorno Menu = new MenuItemRetorno();
+                        Menu.descricao = string.Format("{0}", _expectedData.vszTextoMenu[b].szTextoMenu);
+                        Menu.teclaatalho = b;
+                        Menu.valormenu = _expectedData.vszValorMenu[b].szValorMenu;
+                        Itens.Add(Menu);
                     }
                 }
             }
@@ -78,10 +99,13 @@ namespace PGWLib
             if (LstMenu.SelectedIndex == -1) 
                 return;
 
-            // Atribui o valor a ser retornado para a opção selecionada
-            _ret = _expectedData.vszValorMenu[LstMenu.SelectedIndex].szValorMenu;
-
-            this.Close();
+            MenuItemRetorno MenuSelecionado = (LstMenu.SelectedItem as MenuItemRetorno);
+            if (MenuSelecionado != null)
+            {
+                LstMenu.SelectedItem = MenuSelecionado;
+                _ret = MenuSelecionado.valormenu;
+                this.Close();
+            }
         }
 
         // Tratamento de ESC e ENTER no teclado
@@ -101,11 +125,11 @@ namespace PGWLib
                 if (LstMenu.SelectedIndex == -1)
                     return;
 
-                if ((!_SomentePix && !_expectedData.vszTextoMenu[LstMenu.SelectedIndex].szTextoMenu.ToUpper().Contains("PIX")) ||
-                    (_SomentePix && _expectedData.vszTextoMenu[LstMenu.SelectedIndex].szTextoMenu.ToUpper().Contains("PIX")))
+                MenuItemRetorno MenuSelecionado = (LstMenu.SelectedItem as MenuItemRetorno);
+                if (MenuSelecionado != null)
                 {
-                    // Atribui o valor a ser retornado para a opção selecionada
-                    _ret = _expectedData.vszValorMenu[LstMenu.SelectedIndex].szValorMenu;
+                    LstMenu.SelectedItem = MenuSelecionado;
+                    _ret = MenuSelecionado.valormenu;
                     this.Close();
                 }
             }
@@ -113,10 +137,11 @@ namespace PGWLib
             // Tecla numérica superior pressionada (0-9)
             if (e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9)
             {
-                if ((!_SomentePix && !_expectedData.vszTextoMenu[e.KeyValue - 48].szTextoMenu.ToUpper().Contains("PIX")) ||
-                    (_SomentePix && _expectedData.vszTextoMenu[e.KeyValue - 48].szTextoMenu.ToUpper().Contains("PIX")))
+                MenuItemRetorno MenuSelecionado = Itens.Where(o => o.teclaatalho == (e.KeyValue - 48)).First();
+                if (MenuSelecionado != null)
                 {
-                    _ret = _expectedData.vszValorMenu[e.KeyValue - 48].szValorMenu;
+                    LstMenu.SelectedItem = MenuSelecionado;
+                    _ret = MenuSelecionado.valormenu;
                     this.Close();
                 }
             }
@@ -124,12 +149,13 @@ namespace PGWLib
             // Tecla numérica keypad pressionada (0-9)
             if (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9)
             {
-                if ((!_SomentePix && !_expectedData.vszTextoMenu[e.KeyValue - 96].szTextoMenu.ToUpper().Contains("PIX")) ||
-                    (_SomentePix && _expectedData.vszTextoMenu[e.KeyValue - 96].szTextoMenu.ToUpper().Contains("PIX")))
-                {
-                    _ret = _expectedData.vszValorMenu[e.KeyValue - 96].szValorMenu;
+                MenuItemRetorno MenuSelecionado = Itens.Where(o => o.teclaatalho == (e.KeyValue - 96)).First();
+                if (MenuSelecionado != null) 
+                { 
+                    LstMenu.SelectedItem = MenuSelecionado;
+                    _ret = MenuSelecionado.valormenu;
                     this.Close();
-                }
+                }                
             }            
         }
 
