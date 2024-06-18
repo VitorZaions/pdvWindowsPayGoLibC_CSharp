@@ -1,53 +1,69 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\emano\\Repositorio\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\",
+  "WorkspaceRootPath": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E41AB7B5-DAD6-4C0E-B64E-EFA5AE06A452}|PDVS\\PDVS.csproj|c:\\users\\emano\\repositorio\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pdvs\\typedisplaymessagewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|c:\\users\\vitor\\documents\\github\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pgwlib\\formmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|solutionrelative:pgwlib\\formmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|c:\\users\\vitor\\documents\\github\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pgwlib\\pgwlib.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|solutionrelative:pgwlib\\pgwlib.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|c:\\users\\vitor\\documents\\github\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pgwlib\\formmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|solutionrelative:pgwlib\\formmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|c:\\users\\vitor\\documents\\github\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pgwlib\\formtypeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|solutionrelative:pgwlib\\formtypeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41AB7B5-DAD6-4C0E-B64E-EFA5AE06A452}|PDVS\\PDVS.csproj|c:\\users\\vitor\\documents\\github\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pdvs\\typedisplaymessagewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E41AB7B5-DAD6-4C0E-B64E-EFA5AE06A452}|PDVS\\PDVS.csproj|solutionrelative:pdvs\\typedisplaymessagewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E41AB7B5-DAD6-4C0E-B64E-EFA5AE06A452}|PDVS\\PDVS.csproj|c:\\users\\emano\\repositorio\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pdvs\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{E41AB7B5-DAD6-4C0E-B64E-EFA5AE06A452}|PDVS\\PDVS.csproj|c:\\users\\vitor\\documents\\github\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pdvs\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{E41AB7B5-DAD6-4C0E-B64E-EFA5AE06A452}|PDVS\\PDVS.csproj|solutionrelative:pdvs\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E41AB7B5-DAD6-4C0E-B64E-EFA5AE06A452}|PDVS\\PDVS.csproj|c:\\users\\emano\\repositorio\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pdvs\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E41AB7B5-DAD6-4C0E-B64E-EFA5AE06A452}|PDVS\\PDVS.csproj|c:\\users\\vitor\\documents\\github\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pdvs\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E41AB7B5-DAD6-4C0E-B64E-EFA5AE06A452}|PDVS\\PDVS.csproj|solutionrelative:pdvs\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E41AB7B5-DAD6-4C0E-B64E-EFA5AE06A452}|PDVS\\PDVS.csproj|c:\\users\\emano\\repositorio\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pdvs\\addparamwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E41AB7B5-DAD6-4C0E-B64E-EFA5AE06A452}|PDVS\\PDVS.csproj|c:\\users\\vitor\\documents\\github\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pdvs\\addparamwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E41AB7B5-DAD6-4C0E-B64E-EFA5AE06A452}|PDVS\\PDVS.csproj|solutionrelative:pdvs\\addparamwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|c:\\users\\emano\\repositorio\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pgwlib\\loadingcallpaygo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|c:\\users\\vitor\\documents\\github\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pgwlib\\loadingcallpaygo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|solutionrelative:pgwlib\\loadingcallpaygo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|c:\\users\\emano\\repositorio\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pgwlib\\syncmessagerpaygo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|c:\\users\\vitor\\documents\\github\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pgwlib\\syncmessagerpaygo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|solutionrelative:pgwlib\\syncmessagerpaygo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E41AB7B5-DAD6-4C0E-B64E-EFA5AE06A452}|PDVS\\PDVS.csproj|c:\\users\\emano\\repositorio\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pdvs\\selectuserdatamessagewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E41AB7B5-DAD6-4C0E-B64E-EFA5AE06A452}|PDVS\\PDVS.csproj|c:\\users\\vitor\\documents\\github\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pdvs\\selectuserdatamessagewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E41AB7B5-DAD6-4C0E-B64E-EFA5AE06A452}|PDVS\\PDVS.csproj|solutionrelative:pdvs\\selectuserdatamessagewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|c:\\users\\emano\\repositorio\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pgwlib\\customcontrols\\datagridviewcolumnheadercellpaygo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|c:\\users\\vitor\\documents\\github\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pgwlib\\customcontrols\\datagridviewcolumnheadercellpaygo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|solutionrelative:pgwlib\\customcontrols\\datagridviewcolumnheadercellpaygo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|c:\\users\\emano\\repositorio\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pgwlib\\loadingpaygo.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|c:\\users\\vitor\\documents\\github\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pgwlib\\loadingpaygo.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|solutionrelative:pgwlib\\loadingpaygo.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|c:\\users\\emano\\repositorio\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pgwlib\\messagesyncpaygo.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|c:\\users\\vitor\\documents\\github\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pgwlib\\messagesyncpaygo.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|solutionrelative:pgwlib\\messagesyncpaygo.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|c:\\users\\emano\\repositorio\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pgwlib\\loadingpaygo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|c:\\users\\vitor\\documents\\github\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pgwlib\\loadingpaygo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|solutionrelative:pgwlib\\loadingpaygo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|c:\\users\\emano\\repositorio\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pgwlib\\messagesyncpaygo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|c:\\users\\vitor\\documents\\github\\sync\\sync.libs\\pdvwindowspaygolibc_csharp\\exemplo_csharp\\pgwlib\\messagesyncpaygo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6F5EAD91-2CD7-45AB-B1FF-0700F71E75A2}|PGWLib\\PGWLib.csproj|solutionrelative:pgwlib\\messagesyncpaygo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -58,35 +74,76 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\emano\\Repositorio\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PDVS\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "PDVS\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\emano\\Repositorio\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PDVS\\MainWindow.xaml",
-              "RelativeToolTip": "PDVS\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-06-01T14:11:52.754Z",
+              "Title": "PGWLib.cs",
+              "DocumentMoniker": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\PGWLib.cs",
+              "RelativeDocumentMoniker": "PGWLib\\PGWLib.cs",
+              "ToolTip": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\PGWLib.cs",
+              "RelativeToolTip": "PGWLib\\PGWLib.cs",
+              "ViewState": "AQIAAAYDAAAAAAAAAAAcwA0DAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T01:09:05.83Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
+              "Title": "FormMenu.cs",
+              "DocumentMoniker": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\FormMenu.cs",
+              "RelativeDocumentMoniker": "PGWLib\\FormMenu.cs",
+              "ToolTip": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\FormMenu.cs",
+              "RelativeToolTip": "PGWLib\\FormMenu.cs",
+              "ViewState": "AQIAADEAAAAAAAAAAAAIwDoAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T01:07:29.186Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormMenu.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\FormMenu.cs",
+              "RelativeDocumentMoniker": "PGWLib\\FormMenu.cs",
+              "ToolTip": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\FormMenu.cs [Projeto]",
+              "RelativeToolTip": "PGWLib\\FormMenu.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T01:07:24.218Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FormTypedData.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\FormTypedData.cs",
+              "RelativeDocumentMoniker": "PGWLib\\FormTypedData.cs",
+              "ToolTip": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\FormTypedData.cs [Projeto]",
+              "RelativeToolTip": "PGWLib\\FormTypedData.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T01:07:12.282Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PDVS\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "PDVS\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PDVS\\MainWindow.xaml",
+              "RelativeToolTip": "PDVS\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-01T14:11:52.754Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "DataGridViewColumnHeaderCellPayGo.cs",
-              "DocumentMoniker": "C:\\Users\\emano\\Repositorio\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\CustomControls\\DataGridViewColumnHeaderCellPayGo.cs",
+              "DocumentMoniker": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\CustomControls\\DataGridViewColumnHeaderCellPayGo.cs",
               "RelativeDocumentMoniker": "PGWLib\\CustomControls\\DataGridViewColumnHeaderCellPayGo.cs",
-              "ToolTip": "C:\\Users\\emano\\Repositorio\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\CustomControls\\DataGridViewColumnHeaderCellPayGo.cs",
+              "ToolTip": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\CustomControls\\DataGridViewColumnHeaderCellPayGo.cs",
               "RelativeToolTip": "PGWLib\\CustomControls\\DataGridViewColumnHeaderCellPayGo.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -94,11 +151,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "TypeDisplayMessageWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\emano\\Repositorio\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PDVS\\TypeDisplayMessageWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PDVS\\TypeDisplayMessageWindow.xaml.cs",
               "RelativeDocumentMoniker": "PDVS\\TypeDisplayMessageWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\emano\\Repositorio\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PDVS\\TypeDisplayMessageWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PDVS\\TypeDisplayMessageWindow.xaml.cs",
               "RelativeToolTip": "PDVS\\TypeDisplayMessageWindow.xaml.cs",
               "ViewState": "AQIAAB0AAAAAAAAAAAAWwCkAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -107,11 +164,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "SelectUserDataMessageWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\emano\\Repositorio\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PDVS\\SelectUserDataMessageWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PDVS\\SelectUserDataMessageWindow.xaml.cs",
               "RelativeDocumentMoniker": "PDVS\\SelectUserDataMessageWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\emano\\Repositorio\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PDVS\\SelectUserDataMessageWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PDVS\\SelectUserDataMessageWindow.xaml.cs",
               "RelativeToolTip": "PDVS\\SelectUserDataMessageWindow.xaml.cs",
               "ViewState": "AQIAACcAAAAAAAAAAAD4vzIAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -119,11 +176,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\emano\\Repositorio\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PDVS\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PDVS\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "PDVS\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\emano\\Repositorio\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PDVS\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PDVS\\MainWindow.xaml.cs",
               "RelativeToolTip": "PDVS\\MainWindow.xaml.cs",
               "ViewState": "AQIAABkBAAAAAAAAAAD4vykBAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -131,11 +188,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "AddParamWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\emano\\Repositorio\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PDVS\\AddParamWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PDVS\\AddParamWindow.xaml.cs",
               "RelativeDocumentMoniker": "PDVS\\AddParamWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\emano\\Repositorio\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PDVS\\AddParamWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PDVS\\AddParamWindow.xaml.cs",
               "RelativeToolTip": "PDVS\\AddParamWindow.xaml.cs",
               "ViewState": "AQIAAC4AAAAAAAAAAAD4vzsAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -143,11 +200,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "SyncMessagerPayGo.cs",
-              "DocumentMoniker": "C:\\Users\\emano\\Repositorio\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\SyncMessagerPayGo.cs",
+              "DocumentMoniker": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\SyncMessagerPayGo.cs",
               "RelativeDocumentMoniker": "PGWLib\\SyncMessagerPayGo.cs",
-              "ToolTip": "C:\\Users\\emano\\Repositorio\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\SyncMessagerPayGo.cs",
+              "ToolTip": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\SyncMessagerPayGo.cs",
               "RelativeToolTip": "PGWLib\\SyncMessagerPayGo.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -155,11 +212,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "LoadingCallPayGo.cs",
-              "DocumentMoniker": "C:\\Users\\emano\\Repositorio\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\LoadingCallPayGo.cs",
+              "DocumentMoniker": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\LoadingCallPayGo.cs",
               "RelativeDocumentMoniker": "PGWLib\\LoadingCallPayGo.cs",
-              "ToolTip": "C:\\Users\\emano\\Repositorio\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\LoadingCallPayGo.cs",
+              "ToolTip": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\LoadingCallPayGo.cs",
               "RelativeToolTip": "PGWLib\\LoadingCallPayGo.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -167,11 +224,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "MessageSyncPayGo.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\emano\\Repositorio\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\MessageSyncPayGo.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\MessageSyncPayGo.Designer.cs",
               "RelativeDocumentMoniker": "PGWLib\\MessageSyncPayGo.Designer.cs",
-              "ToolTip": "C:\\Users\\emano\\Repositorio\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\MessageSyncPayGo.Designer.cs",
+              "ToolTip": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\MessageSyncPayGo.Designer.cs",
               "RelativeToolTip": "PGWLib\\MessageSyncPayGo.Designer.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -179,11 +236,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "LoadingPayGo.designer.cs",
-              "DocumentMoniker": "C:\\Users\\emano\\Repositorio\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\LoadingPayGo.designer.cs",
+              "DocumentMoniker": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\LoadingPayGo.designer.cs",
               "RelativeDocumentMoniker": "PGWLib\\LoadingPayGo.designer.cs",
-              "ToolTip": "C:\\Users\\emano\\Repositorio\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\LoadingPayGo.designer.cs",
+              "ToolTip": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\LoadingPayGo.designer.cs",
               "RelativeToolTip": "PGWLib\\LoadingPayGo.designer.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -191,11 +248,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "MessageSyncPayGo.cs",
-              "DocumentMoniker": "C:\\Users\\emano\\Repositorio\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\MessageSyncPayGo.cs",
+              "DocumentMoniker": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\MessageSyncPayGo.cs",
               "RelativeDocumentMoniker": "PGWLib\\MessageSyncPayGo.cs",
-              "ToolTip": "C:\\Users\\emano\\Repositorio\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\MessageSyncPayGo.cs",
+              "ToolTip": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\MessageSyncPayGo.cs",
               "RelativeToolTip": "PGWLib\\MessageSyncPayGo.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -203,11 +260,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "LoadingPayGo.cs",
-              "DocumentMoniker": "C:\\Users\\emano\\Repositorio\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\LoadingPayGo.cs",
+              "DocumentMoniker": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\LoadingPayGo.cs",
               "RelativeDocumentMoniker": "PGWLib\\LoadingPayGo.cs",
-              "ToolTip": "C:\\Users\\emano\\Repositorio\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\LoadingPayGo.cs",
+              "ToolTip": "C:\\Users\\Vitor\\Documents\\GitHub\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\LoadingPayGo.cs",
               "RelativeToolTip": "PGWLib\\LoadingPayGo.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

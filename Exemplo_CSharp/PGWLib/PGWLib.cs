@@ -388,7 +388,7 @@ namespace PGWLib
         #region MÉTODOS PRIVADOS
 
         // Executa o loop da transação até que ela seja aprovada ou ocorra algum erro
-        private int ExecuteTransaction()
+        private int ExecuteTransaction(bool SomentePix = false)
         {
             Sync.Util.LoadingCallPayGo LoadingScreen = new Sync.Util.LoadingCallPayGo("Aguardando TEF...");
             bool IsLoadingScreen = false;
@@ -441,7 +441,7 @@ namespace PGWLib
                         case (int)E_PWRET.PWRET_MOREDATA:
                             if (IsLoadingScreen)
                                 LoadingScreen.CloseLoading();
-                            int ret2 = ShowCorrespondingWindow(structParam, ref fdqr);
+                            int ret2 = ShowCorrespondingWindow(SomentePix, structParam, ref fdqr);
                             LoadingScreen = new Sync.Util.LoadingCallPayGo("Aguardando TEF...");
                             LoadingScreen.ShowLoading();
                             IsLoadingScreen = true;
@@ -511,7 +511,7 @@ namespace PGWLib
         }
         
         // Executa a captura de dado solicitada pela biblioteca
-        private int ShowCorrespondingWindow(PW_GetData[] expectedData, ref FormDisplayQRcode fdqr)
+        private int ShowCorrespondingWindow(bool SomentePix, PW_GetData[] expectedData, ref FormDisplayQRcode fdqr)
         {
             int ret = 0;
             ushort index = 0;
@@ -543,7 +543,7 @@ namespace PGWLib
 
                     // Menu de opções
                     case (int)E_PWDAT.PWDAT_MENU:
-                        return GetMenuFromUser(item);
+                        return GetMenuFromUser(item, SomentePix);
 
                     // Captura de dado digitado
                     case (int)E_PWDAT.PWDAT_TYPED:
@@ -764,7 +764,7 @@ namespace PGWLib
         }
 
         // Executa um menu de opções para o usuário
-        private int GetMenuFromUser(PW_GetData expectedData)
+        private int GetMenuFromUser(PW_GetData expectedData, bool SomentePix)
         {
             bool userAborted = false;
             string value = string.Empty;
@@ -779,7 +779,7 @@ namespace PGWLib
             else
             {
                 // Executa o menu
-                FormMenu window = new FormMenu(expectedData);
+                FormMenu window = new FormMenu(expectedData, SomentePix);
                 window.ShowDialog(ref userAborted, ref value);
                 window.Dispose();
 

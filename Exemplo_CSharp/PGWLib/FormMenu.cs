@@ -17,13 +17,14 @@ namespace PGWLib
         bool userAborted = false;
         PW_GetData _expectedData;
         string _ret = string.Empty;
+        bool _SomentePix;
 
-        public FormMenu(PW_GetData expectedData)
+        public FormMenu(PW_GetData expectedData, bool SomentePix)
         {
             InitializeComponent();
 
             _expectedData = expectedData;
-
+            _SomentePix = SomentePix;
             // Atribui o valor do prompt a ser exibido, substituindo a quebra de linha utilizada
             // pela biblioteca pela quebra de linha utilizada nos forms
             LblHeader.Text = expectedData.szPrompt.Replace("\r", "\n");
@@ -53,14 +54,18 @@ namespace PGWLib
         {           
             for (byte b = 0; b < _expectedData.bNumOpcoesMenu; b++)
             {
-                if (_expectedData.bTeclasDeAtalho == 1 && b < 10)
-                {
-                    LstMenu.Items.Add(string.Format("{0}-{1}", b, _expectedData.vszTextoMenu[b].szTextoMenu));
+                if ((!_SomentePix && !_expectedData.vszTextoMenu[b].szTextoMenu.ToUpper().Contains("PIX")) || 
+                    (_SomentePix && _expectedData.vszTextoMenu[b].szTextoMenu.ToUpper().Contains("PIX")))
+                { 
+                    if (_expectedData.bTeclasDeAtalho == 1 && b < 10)
+                    {
+                        LstMenu.Items.Add(string.Format("{0}-{1}", b, _expectedData.vszTextoMenu[b].szTextoMenu));
+                    }
+                    else
+                    {
+                        LstMenu.Items.Add(string.Format("{0}", _expectedData.vszTextoMenu[b].szTextoMenu));
+                    }
                 }
-                else
-                {
-                    LstMenu.Items.Add(string.Format("{0}", _expectedData.vszTextoMenu[b].szTextoMenu));
-                }               
             }
 
             LstMenu.Focus();
