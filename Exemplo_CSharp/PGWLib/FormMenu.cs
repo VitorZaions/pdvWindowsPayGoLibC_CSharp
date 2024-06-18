@@ -33,9 +33,6 @@ namespace PGWLib
         {
             InitializeComponent();
 
-            LstMenu.DisplayMember = "descricao";
-            LstMenu.ValueMember = "valormenu";
-
             _expectedData = expectedData;
             _SomentePix = SomentePix;
             // Atribui o valor do prompt a ser exibido, substituindo a quebra de linha utilizada
@@ -45,9 +42,13 @@ namespace PGWLib
             // Preenche o ListBox com as opções
             PopulateMenu();
 
+            LstMenu.DataSource = Itens;
+            LstMenu.DisplayMember = "descricao";
+            LstMenu.ValueMember = "valormenu";
+
             // Coloca o curso em cima do item padrão
-            if (_expectedData.bItemInicial >= 0 && _expectedData.bItemInicial < expectedData.bNumOpcoesMenu)
-                LstMenu.SelectedIndex = _expectedData.bItemInicial;
+            if (LstMenu.Items.Count > 0)
+                LstMenu.SelectedIndex = 0;
         }
 
         // Exibe o menu para o usuário
