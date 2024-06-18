@@ -16,11 +16,9 @@ namespace PGWLib
     {
         public class MenuItemRetorno
         {
-            public string descricao;
-
-            public string valormenu;
-
-            public byte teclaatalho;
+            public string descricao { get; set; }
+            public string valormenu { get; set; }
+            public byte teclaatalho { get; set; }
         }
 
         bool userAborted = false;
