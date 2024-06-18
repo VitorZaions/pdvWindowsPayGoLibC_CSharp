@@ -14,6 +14,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = PDVS
-build_property.ProjectDir = C:\Users\Vitor\Documents\GitHub\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\
+build_property.ProjectDir = C:\Users\emano\Repositorio\sync\Sync.Libs\pdvWindowsPayGoLibC_CSharp\Exemplo_CSharp\PDVS\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

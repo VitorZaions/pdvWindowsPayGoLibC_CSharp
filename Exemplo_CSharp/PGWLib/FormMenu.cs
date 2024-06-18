@@ -136,7 +136,7 @@ namespace PGWLib
             // Tecla numérica superior pressionada (0-9)
             if (e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9)
             {
-                MenuItemRetorno MenuSelecionado = Itens.Where(o => o.teclaatalho == (e.KeyValue - 48)).First();
+                MenuItemRetorno MenuSelecionado = Itens.Where(o => o.teclaatalho == (e.KeyValue - 48)).FirstOrDefault();
                 if (MenuSelecionado != null)
                 {
                     LstMenu.SelectedItem = MenuSelecionado;
@@ -148,7 +148,7 @@ namespace PGWLib
             // Tecla numérica keypad pressionada (0-9)
             if (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9)
             {
-                MenuItemRetorno MenuSelecionado = Itens.Where(o => o.teclaatalho == (e.KeyValue - 96)).First();
+                MenuItemRetorno MenuSelecionado = Itens.Where(o => o.teclaatalho == (e.KeyValue - 96)).FirstOrDefault();
                 if (MenuSelecionado != null) 
                 { 
                     LstMenu.SelectedItem = MenuSelecionado;

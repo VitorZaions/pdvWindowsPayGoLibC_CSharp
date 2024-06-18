@@ -70,7 +70,7 @@
             btnOK.FillColor = System.Drawing.Color.FromArgb(238, 238, 238);
             btnOK.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             btnOK.ForeColor = System.Drawing.SystemColors.ControlText;
-            btnOK.Image = Properties.Resources.ok_24px;
+            btnOK.Image = PGWLib.Properties.Resources.ok_24px;
             btnOK.ImageOffset = new System.Drawing.Point(-3, 0);
             btnOK.IndicateFocus = true;
             btnOK.Location = new System.Drawing.Point(356, 328);
@@ -84,7 +84,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.maquina_de_cartao;
+            pictureBox1.Image = PGWLib.Properties.Resources.maquina_de_cartao;
             pictureBox1.Location = new System.Drawing.Point(25, 22);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new System.Drawing.Size(32, 33);
@@ -107,6 +107,7 @@
             MinimizeBox = false;
             Name = "FormMenu";
             Padding = new System.Windows.Forms.Padding(23, 69, 23, 23);
+            Resizable = false;
             Style = MetroFramework.MetroColorStyle.Purple;
             Text = "     Selecione uma Opção";
             Load += FormMenu_Load;
