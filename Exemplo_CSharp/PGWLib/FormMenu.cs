@@ -101,23 +101,35 @@ namespace PGWLib
                 if (LstMenu.SelectedIndex == -1)
                     return;
 
-                // Atribui o valor a ser retornado para a opção selecionada
-                _ret = _expectedData.vszValorMenu[LstMenu.SelectedIndex].szValorMenu;
-                this.Close();
+                if ((!_SomentePix && !_expectedData.vszTextoMenu[LstMenu.SelectedIndex].szTextoMenu.ToUpper().Contains("PIX")) ||
+                    (_SomentePix && _expectedData.vszTextoMenu[LstMenu.SelectedIndex].szTextoMenu.ToUpper().Contains("PIX")))
+                {
+                    // Atribui o valor a ser retornado para a opção selecionada
+                    _ret = _expectedData.vszValorMenu[LstMenu.SelectedIndex].szValorMenu;
+                    this.Close();
+                }
             }
 
             // Tecla numérica superior pressionada (0-9)
             if (e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9)
             {
-                _ret = _expectedData.vszValorMenu[e.KeyValue-48].szValorMenu;
-                this.Close();
+                if ((!_SomentePix && !_expectedData.vszTextoMenu[e.KeyValue - 48].szTextoMenu.ToUpper().Contains("PIX")) ||
+                    (_SomentePix && _expectedData.vszTextoMenu[e.KeyValue - 48].szTextoMenu.ToUpper().Contains("PIX")))
+                {
+                    _ret = _expectedData.vszValorMenu[e.KeyValue - 48].szValorMenu;
+                    this.Close();
+                }
             }
 
             // Tecla numérica keypad pressionada (0-9)
             if (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9)
             {
-                _ret = _expectedData.vszValorMenu[e.KeyValue - 96].szValorMenu;
-                this.Close();
+                if ((!_SomentePix && !_expectedData.vszTextoMenu[e.KeyValue - 96].szTextoMenu.ToUpper().Contains("PIX")) ||
+                    (_SomentePix && _expectedData.vszTextoMenu[e.KeyValue - 96].szTextoMenu.ToUpper().Contains("PIX")))
+                {
+                    _ret = _expectedData.vszValorMenu[e.KeyValue - 96].szValorMenu;
+                    this.Close();
+                }
             }            
         }
 

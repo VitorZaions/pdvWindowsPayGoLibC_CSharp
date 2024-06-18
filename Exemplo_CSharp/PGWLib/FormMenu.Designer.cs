@@ -46,7 +46,8 @@
             LblHeader.Name = "LblHeader";
             LblHeader.Size = new System.Drawing.Size(506, 50);
             LblHeader.TabIndex = 0;
-            LblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            LblHeader.Text = "Selecione uma opção de menu:";
+            LblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // LstMenu
             // 
