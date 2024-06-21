@@ -175,7 +175,8 @@ namespace PGWLib
 			PWINFO_TRNORIGTIME = 115,   // Hora da transação original, no caso de um cancelamento ou uma confirmação de pré-autorização (formato “HHMMSS”).
 			PWINFO_CNCDSPMSG = 116,     // Mensagem a ser exibida para o operador no terminal no caso da transação ser abortada (cancelamento ou timeout).
 			PWINFO_CNCPPMSG = 117,      // Mensagem a ser exibida para o portador no PIN-pad no caso da transação ser abortada (cancelamento ou timeout).
-			PWINFO_CARDENTMODE = 192,   // Modo(s) de entrada do cartão: 1: digitado 2: tarja magnética 4: chip com contato 16: fallback de chip para tarja 32: chip sem contato simulando tarja (cliente informa tipo efetivamente utilizado) 64: chip sem contato EMV (cliente informa tipo efetivamente utilizado) 256: fallback de tarja para digitado
+            PWINFO_TRNORIGLOCREF = 120, // Referência local da transação original, no caso de um cancelamento.
+            PWINFO_CARDENTMODE = 192,   // Modo(s) de entrada do cartão: 1: digitado 2: tarja magnética 4: chip com contato 16: fallback de chip para tarja 32: chip sem contato simulando tarja (cliente informa tipo efetivamente utilizado) 64: chip sem contato EMV (cliente informa tipo efetivamente utilizado) 256: fallback de tarja para digitado
 			PWINFO_CARDFULLPAN = 193,   // Número do cartão completo, para transação digitada. Este dado não pode ser recuperado pela função PW_iGetResult
 			PWINFO_CARDEXPDATE = 194,   // Data de vencimento do cartão (formato “MMAA”).
 			PWINFO_CARDNAMESTD = 196,   // Descrição do produto bandeira padrão relacionado ao BIN.
