@@ -24,15 +24,13 @@ namespace PGWLib
         bool userAborted = false;
         PW_GetData _expectedData;
         string _ret = string.Empty;
-        bool _SomentePix;
         List<MenuItemRetorno> Itens = new List<MenuItemRetorno>();
 
-        public FormMenu(PW_GetData expectedData, bool SomentePix)
+        public FormMenu(PW_GetData expectedData)
         {
             InitializeComponent();
 
             _expectedData = expectedData;
-            _SomentePix = SomentePix;
             // Atribui o valor do prompt a ser exibido, substituindo a quebra de linha utilizada
             // pela biblioteca pela quebra de linha utilizada nos forms
             LblHeader.Text = expectedData.szPrompt.Replace("\r", "\n");
@@ -66,25 +64,21 @@ namespace PGWLib
         {           
             for (byte b = 0; b < _expectedData.bNumOpcoesMenu; b++)
             {
-                if ((!_SomentePix && !_expectedData.vszTextoMenu[b].szTextoMenu.ToUpper().Contains("PIX")) || 
-                    (_SomentePix && _expectedData.vszTextoMenu[b].szTextoMenu.ToUpper().Contains("PIX")))
-                { 
-                    if (_expectedData.bTeclasDeAtalho == 1 && b < 10)
-                    {
-                        MenuItemRetorno Menu = new MenuItemRetorno();
-                        Menu.descricao = string.Format("{0}-{1}", b, _expectedData.vszTextoMenu[b].szTextoMenu);
-                        Menu.teclaatalho = b;
-                        Menu.valormenu = _expectedData.vszValorMenu[b].szValorMenu;
-                        Itens.Add(Menu);
-                    }
-                    else
-                    {
-                        MenuItemRetorno Menu = new MenuItemRetorno();
-                        Menu.descricao = string.Format("{0}", _expectedData.vszTextoMenu[b].szTextoMenu);
-                        Menu.teclaatalho = b;
-                        Menu.valormenu = _expectedData.vszValorMenu[b].szValorMenu;
-                        Itens.Add(Menu);
-                    }
+                if (_expectedData.bTeclasDeAtalho == 1 && b < 10)
+                {
+                    MenuItemRetorno Menu = new MenuItemRetorno();
+                    Menu.descricao = string.Format("{0}-{1}", b, _expectedData.vszTextoMenu[b].szTextoMenu);
+                    Menu.teclaatalho = b;
+                    Menu.valormenu = _expectedData.vszValorMenu[b].szValorMenu;
+                    Itens.Add(Menu);
+                }
+                else
+                {
+                    MenuItemRetorno Menu = new MenuItemRetorno();
+                    Menu.descricao = string.Format("{0}", _expectedData.vszTextoMenu[b].szTextoMenu);
+                    Menu.teclaatalho = b;
+                    Menu.valormenu = _expectedData.vszValorMenu[b].szValorMenu;
+                    Itens.Add(Menu);
                 }
             }
 
