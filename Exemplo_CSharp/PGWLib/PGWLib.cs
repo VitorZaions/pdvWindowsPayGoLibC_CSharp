@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -9,12 +10,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static PGWLib.CustomObjects;
 using static PGWLib.Enums;
+using static System.Collections.Specialized.BitVector32;
 
 namespace PGWLib
 {
     public class PGWLib
     {
-        public PGWLib()
+        private string _PendencyFolder = string.Empty;
+
+        public PGWLib(string pendencyFolder)
         {
             // Cria o diretório que será utilizado pela função PW_iInit
             System.IO.Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\PGWebLib\\");
@@ -28,6 +32,11 @@ namespace PGWLib
             // Caso ocorra um erro no processo de inicialização da biblioteca, dispara uma exceção
             if (ret != (int)E_PWRET.PWRET_OK)
                 throw new System.Exception(string.Format("Erro {0} ao executar PW_iInit", ret.ToString()));
+
+            _PendencyFolder = pendencyFolder;
+
+            if (!Directory.Exists(_PendencyFolder))
+                Directory.CreateDirectory(_PendencyFolder);
         }
 
         #region MÉTODOS PUBLICOS
@@ -66,7 +75,7 @@ namespace PGWLib
             }
 
             // Inicia o processo de execução da transação
-            ret = ExecuteTransaction();
+            ret = ExecuteTransaction(paramList);
 
             return ret;
         }
@@ -173,7 +182,7 @@ namespace PGWLib
                 PendencyDelete();
 
                 // Armazena o status recebido para repetição do processo antes da próxima transação
-                PendencyWrite(transactionStatus);
+                PendencyWrite(ret, displayMessage.ToString(), transactionStatus, transactionResponse);
             }
 
             return ret;
@@ -388,7 +397,7 @@ namespace PGWLib
         #region MÉTODOS PRIVADOS
 
         // Executa o loop da transação até que ela seja aprovada ou ocorra algum erro
-        private int ExecuteTransaction()
+        private int ExecuteTransaction(List<PW_Parameter> paramList)
         {
             Sync.Util.LoadingCallPayGo LoadingScreen = new Sync.Util.LoadingCallPayGo("Aguardando TEF...");
             bool IsLoadingScreen = false;
@@ -428,7 +437,7 @@ namespace PGWLib
                     // 3-) A transação foi finalizada com sucesso, nesse caso o desfazimento permanecerá
                     //     gravado até a execução da resolução de pendência da transação em 
                     //     "ConfirmUndoNormalTransaction"
-                    PendencyWrite(E_PWCNF.PWCNF_REV_PWR_AUT);
+                    PendencyWrite(ret, ret.ToString(), E_PWCNF.PWCNF_REV_PWR_AUT, paramList);
 
                     // Registra na janela de debug o resultado da execução
                     Debug.Print(string.Format("PW_iExecTransac={0}", ret.ToString()));
@@ -455,7 +464,7 @@ namespace PGWLib
 
                                     // Escreve o novo desfazimento a ser executado por transação abortada
                                     // pela automação durante uma captura de dados
-                                    PendencyWrite(E_PWCNF.PWCNF_REV_ABORT);
+                                    PendencyWrite(ret2, ret2.ToString(), E_PWCNF.PWCNF_REV_ABORT, paramList);
 
                                 }
                                 return ret2;
@@ -856,7 +865,7 @@ namespace PGWLib
         }
 
         // Grava uma pendência para posterior resolução
-        private int PendencyWrite(E_PWCNF transactionStatus)
+        private int PendencyWrite(int ret, string resultMessage, E_PWCNF statusTransaction, List<PW_Parameter> responseTransaction)
         {
             // Sempre é necessário, antes de marcar este desfazimento, verificar se a transação necessita
             // de resolução de pendência através da obtenção do dado PWINFO_CNFREQ, caso esse valor 
@@ -872,6 +881,22 @@ namespace PGWLib
             // PWINFO_AUTHSYST
             // Bem como o status a ser utilizado para a resolução de sua pendencia "transactionStatus"
 
+            if (responseTransaction.Find(item => item.parameterCode == (ushort)E_PWINFO.PWINFO_CNFREQ) != null &&
+                responseTransaction.Find(item => item.parameterCode == (ushort)E_PWINFO.PWINFO_CNFREQ).parameterValue != "0")
+            {
+                ResultadoTEFPayGo resultado = new ResultadoTEFPayGo
+                {
+                    ret = ret,
+                    ResultMessage = resultMessage,
+                    transactionStatus = statusTransaction,
+                    Parametros = responseTransaction
+                };
+
+                string NomeArquivo = resultado.Parametros.Find(item => item.parameterCode == (ushort)E_PWINFO.PWINFO_REQNUM).parameterValue + ".ini";
+                IniFilePayGo iniFile = new IniFilePayGo(Path.Combine(_PendencyFolder, NomeArquivo));
+                iniFile.WriteResultadoTEF(resultado, "ConfirmationPayGo");
+            }
+
             return (int)E_PWRET.PWRET_OK;
         }
 
@@ -879,11 +904,22 @@ namespace PGWLib
         private int PendencyDelete()
         {
             // Nessa função é necessário implementar na automação, de acordo com o tipo de persistência
-            // de dados a exclusão de qualquer resolução de pendência que possa estar armazenada.
+            // de dados a exclusão de qualquer resolução de pendência que possa estar armazenada
+
+            if (Directory.Exists(_PendencyFolder))
+            {
+                // Obtém todos os arquivos no diretório
+                string[] files = Directory.GetFiles(_PendencyFolder);
+
+                // Deleta cada arquivo
+                foreach (string file in files)
+                {
+                    File.Delete(file);
+                }
+            }
 
             return (int)E_PWRET.PWRET_OK;
         }
-
         #endregion
     }
 }

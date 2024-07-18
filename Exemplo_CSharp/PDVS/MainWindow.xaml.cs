@@ -56,7 +56,7 @@ namespace PDVS
             Environment.SetEnvironmentVariable("PATH", currentPath + ";" + pathPGWebLib);
 
             // Inicializa a instancia de acesso a biblioteca
-            eft = new PGWLib.PGWLib();
+            eft = new PGWLib.PGWLib(System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "tef"));
 
             // Preenche o combo com as opções de operação
             foreach (string item in Enum.GetNames(typeof(E_PWOPER)))
