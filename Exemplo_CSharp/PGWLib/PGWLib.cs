@@ -831,36 +831,77 @@ namespace PGWLib
         }
 
         // Resolve uma pendência previamente gravada
-        private int PendencyResolve()
+        public int PendencyResolve()
         {
-            Sync.Util.LoadingCallPayGo LoadingScreen = new Sync.Util.LoadingCallPayGo("Resolvendo Pendências...");
-            bool IsLoadingScreen = false;
-            try
+            int ret = (int)E_PWRET.PWRET_OK;
+            string[] files = null;
+
+            if (Directory.Exists(_PendencyFolder))
             {
-                LoadingScreen.ShowLoading();
-                IsLoadingScreen = true;
-                // Nessa função é necessário implementar na automação, de acordo com o tipo de persistência
-                // de dados, a checagem se existe alguma transação necessitando de resolução de pendência
-                // e, caso positivo, obter os identificadores dela que foram persistidos anteriormente:
-                // PWINFO_REQNUM
-                // PWINFO_AUTLOCREF
-                // PWINFO_AUTEXTREF
-                // PWINFO_VIRTMERCH
-                // PWINFO_AUTHSYST
-                // Após isso, chamar a função PW_iConfirmation para resolver e:
-                //      Caso ocorra algum erro nessa chamada, não desmarcar a resolução de pendência 
-                //      em disco e retornar erro, abortando a transação em curso.
-                //      Caso a chamada retorne PWRET_OK, desmarcar a resolução de pendência em disco e
-                //      prosseguir normalmente com a transação em curso.
-                IsLoadingScreen = false;
-                LoadingScreen.CloseLoading();
-                return (int)E_PWRET.PWRET_OK;
+                // Obtém todos os arquivos no diretório
+                files = Directory.GetFiles(_PendencyFolder);
             }
-            catch
+
+            if (files != null && files.Length > 0)
             {
-                if (IsLoadingScreen)
+                Sync.Util.LoadingCallPayGo LoadingScreen = new Sync.Util.LoadingCallPayGo("Resolvendo Pendências...");
+                bool IsLoadingScreen = false;
+                try
+                {
+                    LoadingScreen.ShowLoading();
+                    IsLoadingScreen = true;
+                    // Nessa função é necessário implementar na automação, de acordo com o tipo de persistência
+                    // de dados, a checagem se existe alguma transação necessitando de resolução de pendência
+                    // e, caso positivo, obter os identificadores dela que foram persistidos anteriormente:
+                    // PWINFO_REQNUM
+                    // PWINFO_AUTLOCREF
+                    // PWINFO_AUTEXTREF
+                    // PWINFO_VIRTMERCH
+                    // PWINFO_AUTHSYST
+                    // Após isso, chamar a função PW_iConfirmation para resolver e:
+                    //      Caso ocorra algum erro nessa chamada, não desmarcar a resolução de pendência 
+                    //      em disco e retornar erro, abortando a transação em curso.
+                    //      Caso a chamada retorne PWRET_OK, desmarcar a resolução de pendência em disco e
+                    //      prosseguir normalmente com a transação em curso.
+
+                    // Deleta cada arquivo e resolve a pendencia
+                    foreach (string file in files)
+                    {
+                        string fileName = Path.GetFileNameWithoutExtension(file);
+
+                        IniFilePayGo iniFile = new IniFilePayGo(file);
+                        ResultadoTEFPayGo rTEF = iniFile.ReadResultadoTEF("ConfirmationPayGo");
+                        if (rTEF != null)
+                        {
+                            ret = ConfirmUndoNormalTransaction(E_PWCNF.PWCNF_REV_PWR_AUT, rTEF.Parametros);
+
+                            if (ret == (int)E_PWRET.PWRET_OK)
+                                PendencyDelete(fileName);
+                            else
+                                break;
+                        }
+                    }
+
+                    files = Directory.GetFiles(_PendencyFolder);
+
+                    if (files != null && files.Length > 0 && ret == (int)E_PWRET.PWRET_OK)
+                        ret = (int)E_PWRET.PWRET_INTERNALERR;
+
+                    IsLoadingScreen = false;
                     LoadingScreen.CloseLoading();
-                return (int)E_PWRET.PWRET_CANCEL;
+                    return ret;
+
+                }
+                catch
+                {
+                    if (IsLoadingScreen)
+                        LoadingScreen.CloseLoading();
+                    return (int)E_PWRET.PWRET_CANCEL;
+                }
+            }
+            else
+            {
+                return (int)E_PWRET.PWRET_OK;
             }
         }
 
@@ -901,7 +942,7 @@ namespace PGWLib
         }
 
         // Descarta uma pendência que já foi resolvida ou não é mais necessária
-        private int PendencyDelete()
+        private int PendencyDelete(string ReqNum = "")
         {
             // Nessa função é necessário implementar na automação, de acordo com o tipo de persistência
             // de dados a exclusão de qualquer resolução de pendência que possa estar armazenada
@@ -914,7 +955,10 @@ namespace PGWLib
                 // Deleta cada arquivo
                 foreach (string file in files)
                 {
-                    File.Delete(file);
+                    string fileName = Path.GetFileNameWithoutExtension(file);
+
+                    if (string.IsNullOrEmpty(ReqNum) || fileName.Equals(ReqNum))
+                        File.Delete(file);
                 }
             }
 
