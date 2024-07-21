@@ -161,7 +161,10 @@ namespace PGWLib
             // interrompida até que a confirmação seja enviada ao servidor.
             // Para versões de biblioteca iguais ou superiores a 4.0.96.0, poderá ser utilizada a 
             // função: PW_iWaitConfirmation
-            int loopRet;
+
+            short retornoConfirmation = Interop.PW_iWaitConfirmation();
+
+           /* int loopRet;
             StringBuilder displayMessage = new StringBuilder(1000);
 
             for (; ; )
@@ -170,19 +173,19 @@ namespace PGWLib
                 if (loopRet != (int)E_PWRET.PWRET_NOTHING)
                     break;
                 Thread.Sleep(500);
-            }
+            } */
 
             // Caso a confirmação tenha sido executada com sucesso, remove o desfazimento pendente
-            if (ret != (int)E_PWRET.PWRET_OK)
-                PendencyDelete();
+            if (ret == (int)E_PWRET.PWRET_OK && retornoConfirmation == (int)E_PWRET.PWRET_OK)
+                PendencyDelete(pszReqNum);
             // Caso ocorra alguma falha na confirmação
             else
             {
                 // Apaga o desfazimento
-                PendencyDelete();
+                PendencyDelete(pszReqNum);
 
                 // Armazena o status recebido para repetição do processo antes da próxima transação
-                PendencyWrite(ret, displayMessage.ToString(), transactionStatus, transactionResponse);
+                PendencyWrite(ret, retornoConfirmation.ToString(), transactionStatus, transactionResponse);
             }
 
             return ret;
@@ -437,7 +440,9 @@ namespace PGWLib
                     // 3-) A transação foi finalizada com sucesso, nesse caso o desfazimento permanecerá
                     //     gravado até a execução da resolução de pendência da transação em 
                     //     "ConfirmUndoNormalTransaction"
-                    PendencyWrite(ret, ret.ToString(), E_PWCNF.PWCNF_REV_PWR_AUT, paramList);
+                    List<PW_Parameter> paramsTransaction = new List<PW_Parameter>();
+                    paramsTransaction = GetTransactionResult();
+                    PendencyWrite(ret, ret.ToString(), E_PWCNF.PWCNF_REV_PWR_AUT, paramsTransaction);
 
                     // Registra na janela de debug o resultado da execução
                     Debug.Print(string.Format("PW_iExecTransac={0}", ret.ToString()));
@@ -464,7 +469,8 @@ namespace PGWLib
 
                                     // Escreve o novo desfazimento a ser executado por transação abortada
                                     // pela automação durante uma captura de dados
-                                    PendencyWrite(ret2, ret2.ToString(), E_PWCNF.PWCNF_REV_ABORT, paramList);
+                                    paramsTransaction = GetTransactionResult();
+                                    PendencyWrite(ret2, ret2.ToString(), E_PWCNF.PWCNF_REV_ABORT, paramsTransaction);
 
                                 }
                                 return ret2;
@@ -875,9 +881,7 @@ namespace PGWLib
                         {
                             ret = ConfirmUndoNormalTransaction(E_PWCNF.PWCNF_REV_PWR_AUT, rTEF.Parametros);
 
-                            if (ret == (int)E_PWRET.PWRET_OK)
-                                PendencyDelete(fileName);
-                            else
+                            if (ret != (int)E_PWRET.PWRET_OK)
                                 break;
                         }
                     }
