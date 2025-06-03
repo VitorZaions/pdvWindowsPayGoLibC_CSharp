@@ -29,7 +29,7 @@ namespace PGWLib
         public FormMenu(PW_GetData expectedData)
         {
             InitializeComponent();
-
+            this.TopMost = true;
             _expectedData = expectedData;
             // Atribui o valor do prompt a ser exibido, substituindo a quebra de linha utilizada
             // pela biblioteca pela quebra de linha utilizada nos forms
@@ -45,6 +45,8 @@ namespace PGWLib
             // Coloca o curso em cima do item padrão
             if (LstMenu.Items.Count > 0)
                 LstMenu.SelectedIndex = 0;
+
+
         }
 
         // Exibe o menu para o usuário
@@ -52,7 +54,7 @@ namespace PGWLib
         {
             this.ShowDialog();
 
-            if (LstMenu.SelectedIndex < 0) 
+            if (LstMenu.SelectedIndex < 0)
                 userAborted = true;
 
             abort = userAborted;
@@ -61,7 +63,7 @@ namespace PGWLib
 
         // Coloca as opções no menu
         private void PopulateMenu()
-        {           
+        {
             for (byte b = 0; b < _expectedData.bNumOpcoesMenu; b++)
             {
                 if (_expectedData.bTeclasDeAtalho == 1 && b < 10)
@@ -89,7 +91,7 @@ namespace PGWLib
         private void LstMenu_MouseClick(object sender, MouseEventArgs e)
         {
             // Indica que uma opção não foi selecionada, retorna sem fazer nada
-            if (LstMenu.SelectedIndex == -1) 
+            if (LstMenu.SelectedIndex == -1)
                 return;
 
             MenuItemRetorno MenuSelecionado = (LstMenu.SelectedItem as MenuItemRetorno);
@@ -143,19 +145,26 @@ namespace PGWLib
             if (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9)
             {
                 MenuItemRetorno MenuSelecionado = Itens.Where(o => o.teclaatalho == (e.KeyValue - 96)).FirstOrDefault();
-                if (MenuSelecionado != null) 
-                { 
+                if (MenuSelecionado != null)
+                {
                     LstMenu.SelectedItem = MenuSelecionado;
                     _ret = MenuSelecionado.valormenu;
                     this.Close();
-                }                
-            }            
+                }
+            }
         }
 
         // Coloca o foco no menu ao carregar
         private void FormMenu_Load(object sender, EventArgs e)
         {
             this.Focus();
+        }
+
+        private void FormMenu_Shown(object sender, EventArgs e)
+        {
+            this.BringToFront();       // Garante que fique na frente da stack de janelas
+            this.Focus();              // Tenta focar
+            this.Activate();           // Tenta ativar
         }
     }
 }

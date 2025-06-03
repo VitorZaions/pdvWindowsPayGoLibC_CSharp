@@ -24,6 +24,7 @@ using System.Windows.Shapes;
 using System.IO;
 using static PGWLib.CustomObjects;
 using static PGWLib.Enums;
+using Sync.Util;
 
 namespace PDVS
 {
@@ -54,6 +55,9 @@ namespace PDVS
             // Adicione o diretório da DLL ao PATH do processo atual
             string currentPath = Environment.GetEnvironmentVariable("PATH");
             Environment.SetEnvironmentVariable("PATH", currentPath + ";" + pathPGWebLib);
+
+            LoadingCallPayGo LoadingScreen = new Sync.Util.LoadingCallPayGo("Aguardando TEF...");
+            LoadingScreen.ShowLoading();
 
             // Inicializa a instancia de acesso a biblioteca
             eft = new PGWLib.PGWLib(System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "tef"));

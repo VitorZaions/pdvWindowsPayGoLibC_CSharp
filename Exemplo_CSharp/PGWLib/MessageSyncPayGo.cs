@@ -35,7 +35,7 @@ namespace PGWLib
             _IsAviso = IsAviso;
             _TipoTela = TipoTela;
             _DefaultButton = DefaultButton;
-
+            this.TopMost = true;
             InitializeComponent();
         }
 
@@ -227,7 +227,7 @@ namespace PGWLib
             if (e.Control && e.KeyCode == Keys.C)
             {
                 try
-                { 
+                {
                     if (!string.IsNullOrWhiteSpace(LBL_Desc.Text) && !string.IsNullOrEmpty(LBL_Desc.SelectedText))
                         Clipboard.SetText(LBL_Desc.SelectedText);
                 }
@@ -241,6 +241,13 @@ namespace PGWLib
         private void LBL_Desc_KeyDown(object sender, KeyEventArgs e)
         {
 
+        }
+
+        private void MessageSyncPayGo_Shown(object sender, EventArgs e)
+        {
+            this.BringToFront();       // Garante que fique na frente da stack de janelas
+            this.Focus();              // Tenta focar
+            this.Activate();           // Tenta ativar
         }
     }
 }

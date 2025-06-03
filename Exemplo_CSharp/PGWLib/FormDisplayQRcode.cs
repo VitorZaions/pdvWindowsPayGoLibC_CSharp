@@ -36,7 +36,7 @@ namespace PGWLib
             // Caso o componente de geração de QRcode não esteja instalado, somente exibe a string com o código na tela
             // Ao descomentar o código acima, comentar esse
             this.tbQRcode.Text = qrCode;
-            this.tbQRcode.BringToFront();
+            this.TopMost = true;
         }
 
         public FormDisplayQRcode()
@@ -141,6 +141,13 @@ namespace PGWLib
         public bool isAborted()
         {
             return _userAborted;
+        }
+
+        private void FormDisplayQRcode_Shown(object sender, EventArgs e)
+        {
+            this.BringToFront();       // Garante que fique na frente da stack de janelas
+            this.Focus();              // Tenta focar
+            this.Activate();           // Tenta ativar
         }
     }
 }

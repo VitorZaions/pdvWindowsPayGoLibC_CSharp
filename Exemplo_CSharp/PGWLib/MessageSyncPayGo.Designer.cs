@@ -51,7 +51,7 @@ namespace PGWLib
             // LBL_Header
             // 
             LBL_Header.AutoSize = true;
-            LBL_Header.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            LBL_Header.Font = new System.Drawing.Font("Segoe UI", 20.25F);
             LBL_Header.Location = new System.Drawing.Point(27, 26);
             LBL_Header.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             LBL_Header.Name = "LBL_Header";
@@ -77,7 +77,7 @@ namespace PGWLib
             BTN_Confirmar.BorderThickness = 1;
             BTN_Confirmar.CustomizableEdges = customizableEdges1;
             BTN_Confirmar.FillColor = System.Drawing.Color.FromArgb(238, 238, 238);
-            BTN_Confirmar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            BTN_Confirmar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             BTN_Confirmar.ForeColor = System.Drawing.SystemColors.ControlText;
             BTN_Confirmar.Image = Properties.Resources.ok_24px;
             BTN_Confirmar.ImageOffset = new System.Drawing.Point(-3, 0);
@@ -97,7 +97,7 @@ namespace PGWLib
             BTN_Cancelar.BorderThickness = 1;
             BTN_Cancelar.CustomizableEdges = customizableEdges3;
             BTN_Cancelar.FillColor = System.Drawing.Color.FromArgb(238, 238, 238);
-            BTN_Cancelar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            BTN_Cancelar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             BTN_Cancelar.ForeColor = System.Drawing.SystemColors.ControlText;
             BTN_Cancelar.Image = Properties.Resources.button_cancelar2;
             BTN_Cancelar.ImageOffset = new System.Drawing.Point(-3, 0);
@@ -134,7 +134,7 @@ namespace PGWLib
             // 
             LBL_IsUpdating.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             LBL_IsUpdating.AutoSize = true;
-            LBL_IsUpdating.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            LBL_IsUpdating.Font = new System.Drawing.Font("Arial", 9.75F);
             LBL_IsUpdating.Location = new System.Drawing.Point(30, 126);
             LBL_IsUpdating.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             LBL_IsUpdating.Name = "LBL_IsUpdating";
@@ -147,7 +147,7 @@ namespace PGWLib
             // 
             LBL_IsUpdatingClick.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             LBL_IsUpdatingClick.AutoSize = true;
-            LBL_IsUpdatingClick.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            LBL_IsUpdatingClick.Font = new System.Drawing.Font("Arial", 9.75F);
             LBL_IsUpdatingClick.ForeColor = System.Drawing.Color.FromArgb(84, 144, 249);
             LBL_IsUpdatingClick.Location = new System.Drawing.Point(331, 126);
             LBL_IsUpdatingClick.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -163,7 +163,7 @@ namespace PGWLib
             LBL_Desc.AutoSize = false;
             LBL_Desc.AutoSizeHeightOnly = true;
             LBL_Desc.BackColor = System.Drawing.Color.Transparent;
-            LBL_Desc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            LBL_Desc.Font = new System.Drawing.Font("Segoe UI", 12F);
             LBL_Desc.Location = new System.Drawing.Point(81, 79);
             LBL_Desc.Name = "LBL_Desc";
             LBL_Desc.Size = new System.Drawing.Size(627, 22);
@@ -190,7 +190,7 @@ namespace PGWLib
             ovCBX_NaoAvisarNovamente.UncheckedState.FillColor = System.Drawing.Color.FromArgb(125, 137, 149);
             ovCBX_NaoAvisarNovamente.Visible = false;
             // 
-            // MessageSync
+            // MessageSyncPayGo
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -208,7 +208,7 @@ namespace PGWLib
             KeyPreview = true;
             Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             MaximizeBox = false;
-            Name = "MessageSync";
+            Name = "MessageSyncPayGo";
             Padding = new System.Windows.Forms.Padding(23, 35, 23, 23);
             Resizable = false;
             ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
@@ -217,6 +217,7 @@ namespace PGWLib
             Activated += MessageSync_Activated;
             FormClosing += MessageSync_FormClosing;
             Load += MessageSync_Load;
+            Shown += MessageSyncPayGo_Shown;
             KeyDown += MessageSync_KeyDown;
             flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)PB_Icone).EndInit();

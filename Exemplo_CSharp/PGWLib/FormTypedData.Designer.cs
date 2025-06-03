@@ -143,6 +143,7 @@
             Text = "Insira a informação solicitada";
             TopMost = true;
             Load += FormTypedData_Load;
+            Shown += FormTypedData_Shown;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -111,6 +111,7 @@
             Style = MetroFramework.MetroColorStyle.Purple;
             Text = "     Selecione uma Opção";
             Load += FormMenu_Load;
+            Shown += FormMenu_Shown;
             KeyUp += KeyPressed;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

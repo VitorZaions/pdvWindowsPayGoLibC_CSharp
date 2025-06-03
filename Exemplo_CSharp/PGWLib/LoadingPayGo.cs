@@ -11,6 +11,7 @@ namespace LoadingScreen
         {
             InitializeComponent();
             Info_Loading.Text = info;
+            this.TopMost = true;
         }
 
         public void Finish()
@@ -31,7 +32,9 @@ namespace LoadingScreen
 
         private void Loading_Shown(object sender, EventArgs e)
         {
-            Activate();
+            this.BringToFront();       // Garante que fique na frente da stack de janelas
+            this.Focus();              // Tenta focar
+            this.Activate();           // Tenta ativar
         }
     }
 }

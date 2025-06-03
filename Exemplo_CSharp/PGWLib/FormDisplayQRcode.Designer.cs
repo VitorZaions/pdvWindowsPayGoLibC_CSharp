@@ -37,7 +37,7 @@
             // 
             // lblMessage
             // 
-            lblMessage.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblMessage.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold);
             lblMessage.Location = new System.Drawing.Point(55, 10);
             lblMessage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblMessage.Name = "lblMessage";
@@ -57,7 +57,7 @@
             // tbQRcode
             // 
             tbQRcode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            tbQRcode.Font = new System.Drawing.Font("Courier New", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            tbQRcode.Font = new System.Drawing.Font("Courier New", 24F, System.Drawing.FontStyle.Bold);
             tbQRcode.Location = new System.Drawing.Point(55, 182);
             tbQRcode.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tbQRcode.Multiline = true;
@@ -86,6 +86,7 @@
             ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
             Style = MetroFramework.MetroColorStyle.Purple;
             Text = "FormDisplayQRcode";
+            Shown += FormDisplayQRcode_Shown;
             KeyUp += FormDisplayQRcode_KeyUp;
             ((System.ComponentModel.ISupportInitialize)pbQRcode).EndInit();
             ResumeLayout(false);

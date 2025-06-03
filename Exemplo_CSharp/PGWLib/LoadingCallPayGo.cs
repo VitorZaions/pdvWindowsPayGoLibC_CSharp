@@ -19,15 +19,15 @@ namespace Sync.Util
 
         private void ShowLoadingWork()
         {
-            LoadingScreen = new LoadingScreen.LoadingPayGo(_Texto);
-            Application.Run(LoadingScreen);
+            //LoadingScreen = new LoadingScreen.LoadingPayGo(_Texto);
+            //Application.Run(LoadingScreen);
 
-            //Thread LoadingThread = new Thread(() =>
-            //{
-            //    LoadingScreen = new LoadingScreen.LoadingPayGo(_Texto);
-           //     Application.Run(LoadingScreen);
-           // });
-           // LoadingThread.Start();
+            Thread LoadingThread = new Thread(() =>
+            {
+                LoadingScreen = new LoadingScreen.LoadingPayGo(_Texto);
+                Application.Run(LoadingScreen);
+            });
+            LoadingThread.Start();
         }
 
         public void CloseLoading()

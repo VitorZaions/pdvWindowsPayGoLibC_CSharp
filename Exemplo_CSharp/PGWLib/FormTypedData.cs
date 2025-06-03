@@ -25,7 +25,7 @@ namespace PGWLib
         public FormTypedData(PW_GetData expectedData)
         {
             InitializeComponent();
-
+            this.TopMost = true;
             // Inicializa membros utilizados para validação de digitação dupla
             _twoTimesValid = false;
             _firstString = null;
@@ -67,8 +67,8 @@ namespace PGWLib
 
             // Define se o preenchimento deve ser feito da direita pra esquerda (um valor
             // em dinheiro, por exemplo)
-           // if (expectedData.bIniciaPelaEsquerda != 1)
-           //     txtValue.RightToLeft = RightToLeft.Yes;
+            // if (expectedData.bIniciaPelaEsquerda != 1)
+            //     txtValue.RightToLeft = RightToLeft.Yes;
 
             // Define o tamanho máximo do dado a ser capturado
             //if (expectedData.bTamanhoMaximo > 0)
@@ -351,6 +351,13 @@ namespace PGWLib
         {
             this.Activate();
             txtValue.Focus();
+        }
+
+        private void FormTypedData_Shown(object sender, EventArgs e)
+        {
+            this.BringToFront();       // Garante que fique na frente da stack de janelas
+            this.Focus();              // Tenta focar
+            this.Activate();           // Tenta ativar
         }
     }
 }

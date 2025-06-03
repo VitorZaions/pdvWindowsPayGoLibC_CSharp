@@ -20,6 +20,7 @@ namespace PGWLib
         {
             InitializeComponent();
             _userAborted = false;
+            this.TopMost = true;
         }
 
         // Inicia a exibição da janela de mensagens no modo permamente
@@ -95,7 +96,7 @@ namespace PGWLib
             // Define ume timeout para fechamento automatico da janela
             timer = new Timer();
             timer.Interval = timeout;
-            timer.Tick += Timer_Tick;          
+            timer.Tick += Timer_Tick;
             timer.Start();
             this.ShowDialog();
         }
@@ -121,6 +122,13 @@ namespace PGWLib
         public bool isAborted()
         {
             return _userAborted;
+        }
+
+        private void FormDisplayMessage_Shown(object sender, EventArgs e)
+        {
+            this.BringToFront();       // Garante que fique na frente da stack de janelas
+            this.Focus();              // Tenta focar
+            this.Activate();           // Tenta ativar
         }
     }
 }
