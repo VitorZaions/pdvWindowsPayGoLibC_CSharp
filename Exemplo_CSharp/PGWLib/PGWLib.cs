@@ -402,7 +402,7 @@ namespace PGWLib
         // Executa o loop da transação até que ela seja aprovada ou ocorra algum erro
         private int ExecuteTransaction(List<PW_Parameter> paramList)
         {
-            Sync.Util.LoadingCallPayGo LoadingScreen = new Sync.Util.LoadingCallPayGo("Aguardando TEF...");
+            Sync.Util.LoadingCallPayGo LoadingScreen = new Sync.Util.LoadingCallPayGo("Aguardando Servidor...");
             bool IsLoadingScreen = false;
             try
             {
@@ -426,7 +426,17 @@ namespace PGWLib
 
                     // Desmarca o desfazimento marcado por segurança, pois a transação irá para 
                     // controle pela biblioteca
+                    if (IsLoadingScreen)
+                        LoadingScreen.CloseLoading();
+                    LoadingScreen = new Sync.Util.LoadingCallPayGo("Verificando Pendências...");
+                    LoadingScreen.ShowLoading();
+
                     PendencyDelete();
+
+                    if (IsLoadingScreen)
+                        LoadingScreen.CloseLoading();
+                    LoadingScreen = new Sync.Util.LoadingCallPayGo("Aguardando TEF...");
+                    LoadingScreen.ShowLoading();
 
                     // Chama a função que executa um passo da transação
                     ret = (int)Interop.PW_iExecTransac(structParam, ref numDados);
@@ -440,8 +450,15 @@ namespace PGWLib
                     // 3-) A transação foi finalizada com sucesso, nesse caso o desfazimento permanecerá
                     //     gravado até a execução da resolução de pendência da transação em 
                     //     "ConfirmUndoNormalTransaction"
+
+                    if (IsLoadingScreen)
+                        LoadingScreen.CloseLoading();
+                    LoadingScreen = new Sync.Util.LoadingCallPayGo("Confirmando Dados...");
+                    LoadingScreen.ShowLoading();
+
                     List<PW_Parameter> paramsTransaction = new List<PW_Parameter>();
                     paramsTransaction = GetTransactionResult();
+
                     PendencyWrite(ret, ret.ToString(), E_PWCNF.PWCNF_REV_PWR_AUT, paramsTransaction);
 
                     // Registra na janela de debug o resultado da execução
@@ -456,7 +473,7 @@ namespace PGWLib
                             if (IsLoadingScreen)
                                 LoadingScreen.CloseLoading();
                             int ret2 = ShowCorrespondingWindow(structParam, ref fdqr);
-                            LoadingScreen = new Sync.Util.LoadingCallPayGo("Aguardando TEF...");
+                            LoadingScreen = new Sync.Util.LoadingCallPayGo("Aguardando Confirmação...");
                             LoadingScreen.ShowLoading();
                             IsLoadingScreen = true;
                             if (ret2 != (int)E_PWRET.PWRET_OK)
