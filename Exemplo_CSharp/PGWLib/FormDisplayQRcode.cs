@@ -1,7 +1,11 @@
 ﻿using MetroFramework.Forms;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
-using System.Threading;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,13 +16,25 @@ namespace PGWLib
         bool _userAborted;
         string _lastQRcode;
         bool _isStarted;
-        private Thread _uiThread;
 
         private void AtualizaQRCode(string qrCode)
         {
-            // Código comentado do QRCodeGenerator pode ficar aqui caso queira usar
+            //MessagingToolkit.QRCode.Codec.QRCodeEncoder qrCodecEncoder = new MessagingToolkit.QRCode.Codec.QRCodeEncoder
+            //{
+            //    QRCodeBackgroundColor = System.Drawing.Color.White,
+            //    QRCodeForegroundColor = System.Drawing.Color.Black,
+            //    CharacterSet = "UTF-8",
+            //    QRCodeEncodeMode = MessagingToolkit.QRCode.Codec.QRCodeEncoder.ENCODE_MODE.BYTE,
+            //    QRCodeScale = 7,
+            //    QRCodeVersion = 0,
+            //    QRCodeErrorCorrect = MessagingToolkit.QRCode.Codec.QRCodeEncoder.ERROR_CORRECTION.Q
+            //};
+
+            //Image imagemQRCode = qrCodecEncoder.Encode(qrCode);
+            //pbQRcode.Image = imagemQRCode;
 
             // Caso o componente de geração de QRcode não esteja instalado, somente exibe a string com o código na tela
+            // Ao descomentar o código acima, comentar esse
             this.tbQRcode.Text = qrCode;
             this.TopMost = true;
         }
@@ -30,20 +46,15 @@ namespace PGWLib
             _isStarted = false;
         }
 
-        // Inicia a exibição da janela de QRcode no modo permanente numa thread STA
+        // Inicia a exibição da janela de QRcode no modo permamente
         public void Start()
         {
             if (_isStarted)
                 return;
-
-            _uiThread = new Thread(() =>
+            Task.Factory.StartNew(() =>
             {
                 this.ShowDialog();
             });
-            _uiThread.SetApartmentState(ApartmentState.STA);
-            _uiThread.IsBackground = true;
-            _uiThread.Start();
-
             _isStarted = true;
         }
 
@@ -55,10 +66,10 @@ namespace PGWLib
 
             if (this.InvokeRequired)
             {
-                this.Invoke((Action)(() =>
+                Invoke((Action)delegate
                 {
                     this.Close();
-                }));
+                });
             }
             else
             {
@@ -69,7 +80,6 @@ namespace PGWLib
                     this.Close();
                 }
             }
-
             _isStarted = false;
         }
 
@@ -79,14 +89,16 @@ namespace PGWLib
             if (qrCode != _lastQRcode)
                 AtualizaQRCode(qrCode);
             _lastQRcode = qrCode;
-
             if (this.InvokeRequired)
             {
-                this.Invoke((Action)(() =>
+                Invoke((Action)delegate
                 {
+                    // Atribui o valor do prompt a ser exibido, substituindo a quebra de linha utilizada
+                    // pela biblioteca pela quebra de linha utilizada nos forms
+                    // Remove a centralização vertical para melhor adaptação da mensagem na janela
                     this.lblMessage.Text = text.TrimStart('\r').Replace("\r", "\n");
                     this.Focus();
-                }));
+                });
             }
             else
             {
@@ -94,6 +106,9 @@ namespace PGWLib
                     throw new ObjectDisposedException("Control is already disposed.");
                 else
                 {
+                    // Atribui o valor do prompt a ser exibido, substituindo a quebra de linha utilizada
+                    // pela biblioteca pela quebra de linha utilizada nos forms
+                    // Remove a centralização vertical para melhor adaptação da mensagem na janela
                     this.lblMessage.Text = text.TrimStart('\r').Replace("\r", "\n");
                     this.Focus();
                 }
@@ -103,6 +118,7 @@ namespace PGWLib
         // Caso o operador pressione a tecla ESC para abortar a operação
         private void FormDisplayQRcode_KeyUp(object sender, KeyEventArgs e)
         {
+            // ESC pressionado, operação abortada
             if (e.KeyCode == Keys.Escape)
             {
                 _userAborted = true;
@@ -110,8 +126,10 @@ namespace PGWLib
             }
         }
 
+        // Caso o operador pressione a tecla ESC para abortar a operação
         private void tbQRcode_KeyUp(object sender, KeyEventArgs e)
         {
+            // ESC pressionado, operação abortada
             if (e.KeyCode == Keys.Escape)
             {
                 _userAborted = true;
@@ -127,9 +145,9 @@ namespace PGWLib
 
         private void FormDisplayQRcode_Shown(object sender, EventArgs e)
         {
-            this.BringToFront();
-            this.Focus();
-            this.Activate();
+            this.BringToFront();       // Garante que fique na frente da stack de janelas
+            this.Focus();              // Tenta focar
+            this.Activate();           // Tenta ativar
         }
     }
 }
