@@ -1,20 +1,16 @@
 ﻿using MetroFramework.Forms;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace PGWLib
 {
     public partial class FormDisplayMessage : MetroForm
     {
-        Timer timer;
+        System.Windows.Forms.Timer timer;
         bool _userAborted;
+        private Thread _uiThread;
 
         public FormDisplayMessage()
         {
@@ -23,13 +19,17 @@ namespace PGWLib
             this.TopMost = true;
         }
 
-        // Inicia a exibição da janela de mensagens no modo permamente
+        // Inicia a exibição da janela de mensagens no modo permanente numa thread STA
         public void Start()
         {
-            Task.Factory.StartNew(() =>
+            _uiThread = new Thread(() =>
             {
+                // Mostra o form modal nesta thread STA
                 this.ShowDialog();
             });
+            _uiThread.SetApartmentState(ApartmentState.STA);
+            _uiThread.IsBackground = true;
+            _uiThread.Start();
         }
 
         // Para a exibição da janela de mensagens no modo permanente
@@ -37,19 +37,17 @@ namespace PGWLib
         {
             if (this.InvokeRequired)
             {
-                Invoke((Action)delegate
+                this.Invoke((Action)(() =>
                 {
                     this.Close();
-                });
+                }));
             }
             else
             {
                 if (this.IsDisposed)
                     throw new ObjectDisposedException("Control is already disposed.");
                 else
-                {
                     this.Close();
-                }
             }
         }
 
@@ -58,14 +56,11 @@ namespace PGWLib
         {
             if (this.InvokeRequired)
             {
-                Invoke((Action)delegate
+                this.Invoke((Action)(() =>
                 {
-                    // Atribui o valor do prompt a ser exibido, substituindo a quebra de linha utilizada
-                    // pela biblioteca pela quebra de linha utilizada nos forms
-                    // Remove a centralização vertical para melhor adaptação da mensagem na janela
                     this.LblMessage.Text = newText.TrimStart('\r').Replace("\r", "\n");
                     this.Focus();
-                });
+                }));
             }
             else
             {
@@ -73,31 +68,25 @@ namespace PGWLib
                     throw new ObjectDisposedException("Control is already disposed.");
                 else
                 {
-                    // Atribui o valor do prompt a ser exibido, substituindo a quebra de linha utilizada
-                    // pela biblioteca pela quebra de linha utilizada nos forms
-                    // Remove a centralização vertical para melhor adaptação da mensagem na janela
                     this.LblMessage.Text = newText.TrimStart('\r').Replace("\r", "\n");
                     this.Focus();
                 }
             }
         }
 
-        // Exibe a janela de mensagem com timeout
+        // Exibe a janela de mensagem com timeout (este método roda na thread que chamar)
         public void ShowDialog(string message, int timeout)
         {
-            // Caso não tenha mensagem, retorna
-            if (message == "")
+            if (string.IsNullOrEmpty(message))
                 return;
 
-            // Atribui o valor do prompt a ser exibido, substituindo a quebra de linha utilizada
-            // pela biblioteca pela quebra de linha utilizada nos forms
             this.LblMessage.Text = message.Replace("\r", "\n");
 
-            // Define ume timeout para fechamento automatico da janela
-            timer = new Timer();
+            timer = new System.Windows.Forms.Timer();
             timer.Interval = timeout;
             timer.Tick += Timer_Tick;
             timer.Start();
+
             this.ShowDialog();
         }
 
@@ -107,10 +96,9 @@ namespace PGWLib
             this.Close();
         }
 
-        // Caso o operador pressione a tecla ESC para abortar a operação
+        // Caso o operador pressione ESC para abortar
         private void FormDisplayMessage_KeyUp(object sender, KeyEventArgs e)
         {
-            // ESC pressionado, operação abortada
             if (e.KeyCode == Keys.Escape)
             {
                 _userAborted = true;
@@ -126,9 +114,9 @@ namespace PGWLib
 
         private void FormDisplayMessage_Shown(object sender, EventArgs e)
         {
-            this.BringToFront();       // Garante que fique na frente da stack de janelas
-            this.Focus();              // Tenta focar
-            this.Activate();           // Tenta ativar
+            this.BringToFront();
+            this.Focus();
+            this.Activate();
         }
     }
 }
