@@ -52,7 +52,7 @@
               "RelativeDocumentMoniker": "PGWLib\\PGWLib.cs",
               "ToolTip": "C:\\Users\\Vitor\\Documents\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\PGWLib.cs",
               "RelativeToolTip": "PGWLib\\PGWLib.cs",
-              "ViewState": "AgIAAPkCAAAAAAAAAAAiwAsDAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAH4CAAAAAAAAAAAiwIYCAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-10T19:30:16.805Z",
               "EditorCaption": ""
@@ -67,7 +67,8 @@
               "RelativeToolTip": "PGWLib\\Interop.cs",
               "ViewState": "AgIAAMUBAAAAAAAAAAAUwM8BAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-10T19:30:10.56Z"
+              "WhenOpened": "2025-06-10T19:30:10.56Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -91,7 +92,8 @@
               "ToolTip": "C:\\Users\\Vitor\\Documents\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\FormMenu.cs [Projeto]",
               "RelativeToolTip": "PGWLib\\FormMenu.cs [Projeto]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-10T19:29:48.095Z"
+              "WhenOpened": "2025-06-10T19:29:48.095Z",
+              "EditorCaption": " [Projeto]"
             },
             {
               "$type": "Document",
@@ -127,7 +129,8 @@
               "RelativeToolTip": "PGWLib\\FormMenu.Designer.cs",
               "ViewState": "AgIAAEkAAAAAAAAAAAAiwFYAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T07:00:25.821Z"
+              "WhenOpened": "2025-06-03T07:00:25.821Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

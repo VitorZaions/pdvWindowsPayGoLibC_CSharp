@@ -775,9 +775,6 @@ namespace PGWLib
             // Registra o resultado final do loop de PIN-pad na janela de Debug
             Debug.Print(string.Format("PW_iPPEventLoop={0}", ret.ToString()));
 
-            if (removeCard && ret == (int)E_PWRET.PWRET_NOTHING)
-                ret = (int)E_PWRET.PWRET_OK;
-
             return ret;
         }
 
