@@ -648,8 +648,8 @@ namespace PGWLib
                     // Remoção de cartão do PIN-pad
                     case (int)E_PWDAT.PWDAT_PPREMCRD:
                         ret = Interop.PW_iPPRemoveCard();
-                        Debug.Print(string.Format("PW_iPPRemoveCard={0}", ret.ToString()));
-                        if (ret == (int)E_PWRET.PWRET_OK) 
+                        Debug.Print(string.Format("PW_iPPRemoveCard={0}", ret.ToString())); 
+                        if (ret != (int)E_PWRET.PWRET_OK) 
                             ret = LoopPP();
                         return ret;
 
