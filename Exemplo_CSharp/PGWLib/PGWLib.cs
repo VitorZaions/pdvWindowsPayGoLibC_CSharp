@@ -764,6 +764,14 @@ namespace PGWLib
                     }
                 }
 
+                using (StreamWriter writer = new StreamWriter("Log.txt", true))
+                {
+                    writer.WriteLine("=====================[TEF]========================");
+                    writer.WriteLine($"Data/Hora: {DateTime.Now}");
+                    writer.WriteLine($"TEF Loop: {(int)ret}");
+                    writer.WriteLine("==================================================");
+                }
+
                 // Aguarda 200ms para chamar o loop de eventos novamente
                 Thread.Sleep(200);
             } while (ret == (int)E_PWRET.PWRET_NOTHING || ret == (int)E_PWRET.PWRET_DISPLAY);
