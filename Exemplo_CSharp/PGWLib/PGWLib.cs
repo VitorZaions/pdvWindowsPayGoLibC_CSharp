@@ -649,8 +649,8 @@ namespace PGWLib
                     case (int)E_PWDAT.PWDAT_PPREMCRD:
                         ret = Interop.PW_iPPRemoveCard();
                         Debug.Print(string.Format("PW_iPPRemoveCard={0}", ret.ToString())); 
-                        if (ret != (int)E_PWRET.PWRET_OK) 
-                            ret = LoopPP();
+                        if (ret == (int)E_PWRET.PWRET_OK) 
+                            ret = LoopPP(true);
                         return ret;
 
                     // Exibição de mensagem de interface no display da automação
@@ -722,7 +722,7 @@ namespace PGWLib
 
         // Aguarda em loop a finalização da operação executada no PIN-pad, fazendo
         // os tratamento necessários dos retornos
-        private int LoopPP()
+        private int LoopPP(bool removeCard = false)
         {
             int ret;
             bool isFdmStarted = false;
@@ -766,7 +766,7 @@ namespace PGWLib
 
                 // Aguarda 200ms para chamar o loop de eventos novamente
                 Thread.Sleep(200);
-            } while (ret == (int)E_PWRET.PWRET_NOTHING || ret == (int)E_PWRET.PWRET_DISPLAY);
+            } while ((!removeCard && ret == (int)E_PWRET.PWRET_NOTHING) || ret == (int)E_PWRET.PWRET_DISPLAY);
 
             // Fecha janela para exibição de mensagem
             if(isFdmStarted)
