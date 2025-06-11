@@ -648,9 +648,13 @@ namespace PGWLib
                     // Remoção de cartão do PIN-pad
                     case (int)E_PWDAT.PWDAT_PPREMCRD:
                         ret = Interop.PW_iPPRemoveCard();
+                        using (StreamWriter writer = new StreamWriter("Log.txt", true))
+                        {
+                            writer.WriteLine("=====================[TEF - REMOVECARD 1]========================");
+                        }
                         Debug.Print(string.Format("PW_iPPRemoveCard={0}", ret.ToString()));
                         if (ret == (int)E_PWRET.PWRET_OK) 
-                            ret = LoopPP();
+                            ret = LoopPP(true);
                         return ret;
 
                     // Exibição de mensagem de interface no display da automação
@@ -722,18 +726,35 @@ namespace PGWLib
 
         // Aguarda em loop a finalização da operação executada no PIN-pad, fazendo
         // os tratamento necessários dos retornos
-        private int LoopPP()
+        private int LoopPP(bool removeCard = false)
         {
             int ret;
             bool isFdmStarted = false;
 
+            int tentativas = 0;
+
             // Cria a janela para exibição de mensagens de interface
             FormDisplayMessage fdm = new FormDisplayMessage();
             
+
             // Loop executando até a finalização do comando de PIN-pad, seja ele com um erro
             // ou com sucesso
             do
-            { 
+            {
+                if(tentativas > 8 && removeCard)
+                {
+                    ret = (int)E_PWRET.PWRET_OK;
+
+                    using (StreamWriter writer = new StreamWriter("Log.txt", true))
+                    {
+                        writer.WriteLine("=====================[TEF REMOVECARD - PASSOU O LIMITE]========================");
+                        writer.WriteLine($"Data/Hora: {DateTime.Now}");
+                        writer.WriteLine($"TEF Loop: {(int)ret}");
+                        writer.WriteLine("==================================================");
+                    }
+
+                    break;
+                }
                 // Chama o loop de eventos
                 StringBuilder displayMessage = new StringBuilder(1000);
                 ret = Interop.PW_iPPEventLoop(displayMessage, (uint)displayMessage.Capacity);
@@ -766,14 +787,17 @@ namespace PGWLib
 
                 using (StreamWriter writer = new StreamWriter("Log.txt", true))
                 {
-                    writer.WriteLine("=====================[TEF]========================");
+                    if (removeCard)
+                        writer.WriteLine("=====================[TEF - REMOVECARD 2]========================");
+                    else
+                        writer.WriteLine("=====================[TEF]========================");
                     writer.WriteLine($"Data/Hora: {DateTime.Now}");
                     writer.WriteLine($"TEF Loop: {(int)ret}");
                     writer.WriteLine("==================================================");
                 }
-
+                tentativas++;
                 // Aguarda 200ms para chamar o loop de eventos novamente
-                Thread.Sleep(200);
+                Thread.Sleep(400);
             } while (ret == (int)E_PWRET.PWRET_NOTHING || ret == (int)E_PWRET.PWRET_DISPLAY);
 
             // Fecha janela para exibição de mensagem
