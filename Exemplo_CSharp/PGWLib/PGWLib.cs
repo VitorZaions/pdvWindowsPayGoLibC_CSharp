@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -455,25 +456,31 @@ namespace PGWLib
                         case (int)E_PWRET.PWRET_MOREDATA:
                             if (IsLoadingScreen)
                                 LoadingScreen.CloseLoading();
-                            int ret2 = ShowCorrespondingWindow(structParam, ref fdqr);
+                            (int ret2, byte? tipoDado) = ShowCorrespondingWindow(structParam, ref fdqr);
                             LoadingScreen = new Sync.Util.LoadingCallPayGo("Aguardando TEF...");
                             LoadingScreen.ShowLoading();
                             IsLoadingScreen = true;
                             if (ret2 != (int)E_PWRET.PWRET_OK)
                             {
-                                if (ret2 == (int)E_PWRET.PWRET_CANCEL)
+                                // Se foi cancelamento causado por remoção de cartão, simplesmente ignora
+                                if (ret2 == (int)E_PWRET.PWRET_CANCEL && tipoDado != null && (int)tipoDado == (int)E_PWDAT.PWDAT_PPREMCRD)
                                 {
-                                    // Apaga o status de desfazimento anterior por desligamento abrupto da
-                                    // automação
+                                    using (StreamWriter writer = new StreamWriter("Log.txt", true))
+                                    {
+                                        writer.WriteLine("=====================Cancelamento forçado ignorado (RemoveCard timeout)========================");
+                                    }
+                                    Debug.Print("Cancelamento forçado ignorado (RemoveCard timeout)");
+                                    fdqr.Stop();
+                                    return (int)E_PWRET.PWRET_OK;
+                                }
+                                else
+                                {
+                                    // Aqui você trata outros cancelamentos normalmente
                                     PendencyDelete();
-
-                                    // Escreve o novo desfazimento a ser executado por transação abortada
-                                    // pela automação durante uma captura de dados
                                     paramsTransaction = GetTransactionResult();
                                     PendencyWrite(ret2, ret2.ToString(), E_PWCNF.PWCNF_REV_ABORT, paramsTransaction);
-
+                                    return ret2;
                                 }
-                                return ret2;
                             }
                             break;
 
@@ -526,7 +533,7 @@ namespace PGWLib
         }
         
         // Executa a captura de dado solicitada pela biblioteca
-        private int ShowCorrespondingWindow(PW_GetData[] expectedData, ref FormDisplayQRcode fdqr)
+        private (int ret, byte? tipoDado) ShowCorrespondingWindow(PW_GetData[] expectedData, ref FormDisplayQRcode fdqr)
         {
             int ret = 0;
             ushort index = 0;
@@ -547,28 +554,28 @@ namespace PGWLib
                 {
                     case 0:
                         Debug.Print(string.Format("ERRO!!! Item com valor zerado."));
-                        return ret;
+                        return (ret, item.bTipoDeDado);
 
                     // Caso a automação trabalhe com captura de código de barras, necessário 
                     // implementar os casos que serão aceitos (digitado, leitor...), bem como
                     //  as validações necessárias por tipo de código
                     case (int)E_PWDAT.PWDAT_BARCODE:
                         ret = GetTypedDataFromUser(item);
-                        return ret;
+                        return (ret, item.bTipoDeDado);
 
                     // Menu de opções
                     case (int)E_PWDAT.PWDAT_MENU:
-                        return GetMenuFromUser(item);
+                        return (GetMenuFromUser(item), item.bTipoDeDado);
 
                     // Captura de dado digitado
                     case (int)E_PWDAT.PWDAT_TYPED:
                         ret = GetTypedDataFromUser(item);
-                        return ret;
+                        return (ret, item.bTipoDeDado);
 
                     // Autenticação de permissão de usuário
                     case (int)E_PWDAT.PWDAT_USERAUTH:
                         ret = GetTypedDataFromUser(item);
-                        return ret;
+                        return (ret, item.bTipoDeDado);
 
                     // Captura de dados do cartão
                     case (int)E_PWDAT.PWDAT_CARDINF:
@@ -587,7 +594,7 @@ namespace PGWLib
                             if (ret == (int)E_PWRET.PWRET_OK) 
                                 ret = LoopPP();
                         }
-                        return ret;
+                        return (ret, item.bTipoDeDado);
                
                     // Processamento offline do cartão
                     case (int)E_PWDAT.PWDAT_CARDOFF:
@@ -595,7 +602,7 @@ namespace PGWLib
                         Debug.Print(string.Format("PW_iPPGoOnChip={0}", ret.ToString()));
                         if (ret == (int)E_PWRET.PWRET_OK)
                             ret = LoopPP();
-                        return ret;
+                        return (ret, item.bTipoDeDado);
 
                     // Processamento online do cartão
                     case (int)E_PWDAT.PWDAT_CARDONL:
@@ -603,7 +610,7 @@ namespace PGWLib
                         Debug.Print(string.Format("PW_iPPFinishChip={0}", ret.ToString()));
                         if (ret == (int)E_PWRET.PWRET_OK) 
                             ret = LoopPP();
-                        return ret;
+                        return (ret, item.bTipoDeDado);
 
                     // Confirmação de dado no PIN-pad
                     case (int)E_PWDAT.PWDAT_PPCONF:
@@ -611,7 +618,7 @@ namespace PGWLib
                         Debug.Print(string.Format("PW_iPPConfirmData={0}", ret.ToString()));
                         if (ret == (int)E_PWRET.PWRET_OK) 
                             ret = LoopPP();
-                        return ret;
+                        return (ret, item.bTipoDeDado);
 
                     // Confirmação positiva PIN-pad
                     case (int)E_PWDAT.PWDAT_PPDATAPOSCNF:
@@ -619,7 +626,7 @@ namespace PGWLib
                         Debug.Print(string.Format("PW_iPPPositiveConfirmation={0}", ret.ToString()));
                         if (ret == (int)E_PWRET.PWRET_OK)
                             ret = LoopPP();
-                        return ret;
+                        return (ret, item.bTipoDeDado);
 
                     // Comando genérico no PIN-pad
                     case (int)E_PWDAT.PWDAT_PPGENCMD:
@@ -627,7 +634,7 @@ namespace PGWLib
                         Debug.Print(string.Format("PW_iPPGenericCMD={0}", ret.ToString()));
                         if (ret == (int)E_PWRET.PWRET_OK)
                             ret = LoopPP();
-                        return ret;
+                        return (ret, item.bTipoDeDado);
 
                     // Senha do portador
                     case (int)E_PWDAT.PWDAT_PPENCPIN:
@@ -635,7 +642,7 @@ namespace PGWLib
                         Debug.Print(string.Format("PW_iPPGetPIN={0}", ret.ToString()));
                         if (ret == (int)E_PWRET.PWRET_OK) 
                             ret = LoopPP();
-                        return ret;
+                        return (ret, item.bTipoDeDado);
 
                     // Entrada digitada no PIN-pad
                     case (int)E_PWDAT.PWDAT_PPENTRY:
@@ -643,7 +650,7 @@ namespace PGWLib
                         Debug.Print(string.Format("PW_iPPGetData={0}", ret.ToString()));
                         if (ret == (int)E_PWRET.PWRET_OK) 
                             ret = LoopPP();
-                        return ret;
+                        return (ret, item.bTipoDeDado);
 
                     // Remoção de cartão do PIN-pad
                     case (int)E_PWDAT.PWDAT_PPREMCRD:
@@ -655,7 +662,7 @@ namespace PGWLib
                         Debug.Print(string.Format("PW_iPPRemoveCard={0}", ret.ToString()));
                         if (ret == (int)E_PWRET.PWRET_OK) 
                             ret = LoopPP(true);
-                        return ret;
+                        return (ret, item.bTipoDeDado);
 
                     // Exibição de mensagem de interface no display da automação
                     case (int)E_PWDAT.PWDAT_DSPCHECKOUT:
@@ -675,10 +682,10 @@ namespace PGWLib
                         fdm.Stop();
 
                         if(ret != (int)E_PWRET.PWRET_OK)
-                            return ret;
+                            return (ret, item.bTipoDeDado);
                         // Sinaliza a exibição da mensagem para a biblioteca
                         ret = Interop.PW_iAddParam(item.wIdentificador, "");
-                        return (int)E_PWRET.PWRET_OK;
+                        return ((int)E_PWRET.PWRET_OK, item.bTipoDeDado);
 
                     // Exibição de QRcode no display da automação
                     case (int)E_PWDAT.PWDAT_DSPQRCODE:
@@ -691,7 +698,7 @@ namespace PGWLib
 
                         // Tenta obter o valor do QRcode a ser exibido, caso não ache retorna operação cancelada
                         if (Interop.PW_iGetResult((short)E_PWINFO.PWINFO_AUTHPOSQRCODE, stringQRcode, 5001) != (int)E_PWRET.PWRET_OK)
-                            return (int)E_PWRET.PWRET_CANCEL;
+                            return ((int)E_PWRET.PWRET_CANCEL, item.bTipoDeDado);
 
                         // Exibe o QRcode e o prompt
                         fdqr.Start();
@@ -709,19 +716,19 @@ namespace PGWLib
                             fdqr.Stop();
 
                             // Atribui o retorno de aoperação cancelada
-                            return (int)E_PWRET.PWRET_CANCEL;
+                            return ((int)E_PWRET.PWRET_CANCEL, item.bTipoDeDado);
                         }
                         
                         // Sinaliza a exibição do QRcode para a biblioteca
                         ret = Interop.PW_iAddParam(item.wIdentificador, "");
-                        return (int)E_PWRET.PWRET_OK;
+                        return ((int)E_PWRET.PWRET_OK, item.bTipoDeDado);
 
                     default:
                         break;
                 }
                 index++;
             }
-            return ret;
+            return (ret, null);
         }
 
         // Aguarda em loop a finalização da operação executada no PIN-pad, fazendo
@@ -730,36 +737,17 @@ namespace PGWLib
         {
             int ret;
             bool isFdmStarted = false;
-
             int tentativas = 0;
-
-            // Cria a janela para exibição de mensagens de interface
+                
             FormDisplayMessage fdm = new FormDisplayMessage();
-            
 
-            // Loop executando até a finalização do comando de PIN-pad, seja ele com um erro
-            // ou com sucesso
+            DateTime? timeout = removeCard ? DateTime.Now.AddSeconds(5) : null; // Timeout só se for removeCard
+
             do
             {
-                if(tentativas > 8 && removeCard)
-                {
-                    ret = (int)E_PWRET.PWRET_OK;
-
-                    using (StreamWriter writer = new StreamWriter("Log.txt", true))
-                    {
-                        writer.WriteLine("=====================[TEF REMOVECARD - PASSOU O LIMITE]========================");
-                        writer.WriteLine($"Data/Hora: {DateTime.Now}");
-                        writer.WriteLine($"TEF Loop: {(int)ret}");
-                        writer.WriteLine("==================================================");
-                    }
-
-                    break;
-                }
-                // Chama o loop de eventos
                 StringBuilder displayMessage = new StringBuilder(1000);
                 ret = Interop.PW_iPPEventLoop(displayMessage, (uint)displayMessage.Capacity);
 
-                // Caso tenha retornado uma mensagem para exibição, exibe
                 if (ret == (int)E_PWRET.PWRET_DISPLAY)
                 {
                     if (!isFdmStarted)
@@ -770,46 +758,58 @@ namespace PGWLib
                     fdm.ChangeText(displayMessage.ToString());
                 }
 
-                // Verifica se o operador abortou a operação no checkout
-                if(isFdmStarted)
+                if (isFdmStarted && fdm.isAborted())
                 {
-                    if(fdm.isAborted())
-                    {
-                        // Aborta a operação em curso no PIN-pad
-                        Interop.PW_iPPAbort();
-
-                        // Atribui o retorno de aoperação cancelada
-                        ret = (int)E_PWRET.PWRET_CANCEL;
-
-                        break;
-                    }
+                    Interop.PW_iPPAbort();
+                    ret = (int)E_PWRET.PWRET_CANCEL;
+                    break;
                 }
 
                 using (StreamWriter writer = new StreamWriter("Log.txt", true))
                 {
-                    if (removeCard)
-                        writer.WriteLine("=====================[TEF - REMOVECARD 2]========================");
-                    else
-                        writer.WriteLine("=====================[TEF]========================");
+                    writer.WriteLine(removeCard
+                        ? "=====================[TEF - REMOVECARD 2]========================"
+                        : "=====================[TEF]========================");
+
                     writer.WriteLine($"Data/Hora: {DateTime.Now}");
                     writer.WriteLine($"TEF Loop: {(int)ret}");
                     writer.WriteLine("==================================================");
                 }
+
                 tentativas++;
-                // Aguarda 200ms para chamar o loop de eventos novamente
                 Thread.Sleep(400);
+
+                // Timeout aplicado apenas se for removeCard
+                if (removeCard && timeout.HasValue && DateTime.Now >= timeout.Value)
+                {
+                    using (StreamWriter writer = new StreamWriter("Log.txt", true))
+                    {
+                        writer.WriteLine(removeCard
+                            ? "=====================[TEF - REMOVECARD 2]========================"
+                            : "=====================[TEF]========================");
+
+                        writer.WriteLine($"Data/Hora: {DateTime.Now}");
+                        writer.WriteLine($"TEF Timeout: {(int)ret}");
+                        writer.WriteLine("==================================================");
+                    }
+                    Debug.Print("Timeout atingido no LoopPP durante remoção de cartão.");
+
+                    // Encerra forçadamente a operação no PINPad
+                    Interop.PW_iPPAbort();
+
+                    // Agora ignora o erro e retorna código neutro só para continuar o fluxo
+                    return (int)E_PWRET.PWRET_CANCEL; // ou crie seu próprio código de controle (ex: -5000)
+                }
+
             } while (ret == (int)E_PWRET.PWRET_NOTHING || ret == (int)E_PWRET.PWRET_DISPLAY);
 
-            // Fecha janela para exibição de mensagem
-            if(isFdmStarted)
+            if (isFdmStarted)
                 fdm.Stop();
 
-            // Registra o resultado final do loop de PIN-pad na janela de Debug
-            Debug.Print(string.Format("PW_iPPEventLoop={0}", ret.ToString()));
+            Debug.Print($"PW_iPPEventLoop={ret}");
 
             return ret;
         }
-
         // Executa um menu de opções para o usuário
         private int GetMenuFromUser(PW_GetData expectedData)
         {
