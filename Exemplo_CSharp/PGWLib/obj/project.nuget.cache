@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "NA7DQ/R/Sh4=",
+  "dgSpecHash": "Cm1WuBe0Qvw=",
   "success": true,
-  "projectFilePath": "C:\\Repositorio\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\PGWLib.csproj",
+  "projectFilePath": "C:\\Users\\Vitor\\Documents\\sync\\Sync.Libs\\pdvWindowsPayGoLibC_CSharp\\Exemplo_CSharp\\PGWLib\\PGWLib.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Emanoel\\.nuget\\packages\\guna.ui2.winforms\\2.0.4.6\\guna.ui2.winforms.2.0.4.6.nupkg.sha512",
-    "C:\\Users\\Emanoel\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
-    "C:\\Users\\Emanoel\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
-    "C:\\Users\\Emanoel\\.nuget\\packages\\system.data.datasetextensions\\4.5.0\\system.data.datasetextensions.4.5.0.nupkg.sha512",
-    "C:\\Users\\Emanoel\\.nuget\\packages\\system.management\\7.0.0\\system.management.7.0.0.nupkg.sha512",
-    "C:\\Users\\Emanoel\\.nuget\\packages\\xein.metroframework\\1.5.1\\xein.metroframework.1.5.1.nupkg.sha512"
+    "C:\\Users\\Vitor\\.nuget\\packages\\guna.ui2.winforms\\2.0.4.6\\guna.ui2.winforms.2.0.4.6.nupkg.sha512",
+    "C:\\Users\\Vitor\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\Vitor\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
+    "C:\\Users\\Vitor\\.nuget\\packages\\system.data.datasetextensions\\4.5.0\\system.data.datasetextensions.4.5.0.nupkg.sha512",
+    "C:\\Users\\Vitor\\.nuget\\packages\\system.management\\7.0.0\\system.management.7.0.0.nupkg.sha512",
+    "C:\\Users\\Vitor\\.nuget\\packages\\xein.metroframework\\1.5.1\\xein.metroframework.1.5.1.nupkg.sha512"
   ],
   "logs": []
 }
