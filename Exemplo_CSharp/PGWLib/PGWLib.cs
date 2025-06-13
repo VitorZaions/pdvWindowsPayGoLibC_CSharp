@@ -465,10 +465,10 @@ namespace PGWLib
                                 // Se foi cancelamento causado por remoção de cartão, simplesmente ignora
                                 if (ret2 == (int)E_PWRET.PWRET_CANCEL && tipoDado != null && (int)tipoDado == (int)E_PWDAT.PWDAT_PPREMCRD)
                                 {
-                                    using (StreamWriter writer = new StreamWriter("Log.txt", true))
-                                    {
-                                        writer.WriteLine("=====================Cancelamento forçado ignorado (RemoveCard timeout)========================");
-                                    }
+                                    //using (StreamWriter writer = new StreamWriter("Log.txt", true))
+                                    //{
+                                    //    writer.WriteLine("=====================Cancelamento forçado ignorado (RemoveCard timeout)========================");
+                                    //}
                                     Debug.Print("Cancelamento forçado ignorado (RemoveCard timeout)");
                                     fdqr.Stop();
                                     return (int)E_PWRET.PWRET_OK;
@@ -655,10 +655,10 @@ namespace PGWLib
                     // Remoção de cartão do PIN-pad
                     case (int)E_PWDAT.PWDAT_PPREMCRD:
                         ret = Interop.PW_iPPRemoveCard();
-                        using (StreamWriter writer = new StreamWriter("Log.txt", true))
-                        {
-                            writer.WriteLine("=====================[TEF - REMOVECARD 1]========================");
-                        }
+                        //using (StreamWriter writer = new StreamWriter("Log.txt", true))
+                        //{
+                       //     writer.WriteLine("=====================[TEF - REMOVECARD 1]========================");
+                       // }
                         Debug.Print(string.Format("PW_iPPRemoveCard={0}", ret.ToString()));
                         if (ret == (int)E_PWRET.PWRET_OK) 
                             ret = LoopPP(true);
@@ -741,7 +741,7 @@ namespace PGWLib
                 
             FormDisplayMessage fdm = new FormDisplayMessage();
 
-            DateTime? timeout = removeCard ? DateTime.Now.AddSeconds(5) : null; // Timeout só se for removeCard
+            DateTime? timeout = removeCard ? DateTime.Now.AddSeconds(2) : null; // Timeout só se for removeCard
 
             do
             {
@@ -765,16 +765,16 @@ namespace PGWLib
                     break;
                 }
 
-                using (StreamWriter writer = new StreamWriter("Log.txt", true))
-                {
-                    writer.WriteLine(removeCard
-                        ? "=====================[TEF - REMOVECARD 2]========================"
-                        : "=====================[TEF]========================");
+               // using (StreamWriter writer = new StreamWriter("Log.txt", true))
+                //{
+                   // writer.WriteLine(removeCard
+                    //    ? "=====================[TEF - REMOVECARD 2]========================"
+                    //    : "=====================[TEF]========================");
 
-                    writer.WriteLine($"Data/Hora: {DateTime.Now}");
-                    writer.WriteLine($"TEF Loop: {(int)ret}");
-                    writer.WriteLine("==================================================");
-                }
+                    //writer.WriteLine($"Data/Hora: {DateTime.Now}");
+                    //writer.WriteLine($"TEF Loop: {(int)ret}");
+                    //writer.WriteLine("==================================================");
+               // }
 
                 tentativas++;
                 Thread.Sleep(400);
@@ -782,16 +782,16 @@ namespace PGWLib
                 // Timeout aplicado apenas se for removeCard
                 if (removeCard && timeout.HasValue && DateTime.Now >= timeout.Value)
                 {
-                    using (StreamWriter writer = new StreamWriter("Log.txt", true))
-                    {
-                        writer.WriteLine(removeCard
-                            ? "=====================[TEF - REMOVECARD 2]========================"
-                            : "=====================[TEF]========================");
+                  //  using (StreamWriter writer = new StreamWriter("Log.txt", true))
+                   // {
+                       // writer.WriteLine(removeCard
+                        //    ? "=====================[TEF - REMOVECARD 2]========================"
+                        //    : "=====================[TEF]========================");
 
-                        writer.WriteLine($"Data/Hora: {DateTime.Now}");
-                        writer.WriteLine($"TEF Timeout: {(int)ret}");
-                        writer.WriteLine("==================================================");
-                    }
+                        //writer.WriteLine($"Data/Hora: {DateTime.Now}");
+                        //writer.WriteLine($"TEF Timeout: {(int)ret}");
+                        //writer.WriteLine("==================================================");
+                  //  }
                     Debug.Print("Timeout atingido no LoopPP durante remoção de cartão.");
 
                     // Encerra forçadamente a operação no PINPad
